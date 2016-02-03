@@ -1,0 +1,96 @@
+\begin{thebibliography}{10}
+
+\bibitem{averageAmerican}
+``protectyourbubble.com.'' \url{http://us.protectyourbubble.com/blog/}.
+
+\bibitem{kumar2010cloud}
+K.~Kumar and Y.-H. Lu, ``Cloud computing for mobile users: Can offloading
+  computation save energy?,'' {\em Computer}, vol.~43, no.~4, pp.~51--56, 2010.
+
+\bibitem{flores2015mobile}
+H.~Flores, P.~Hui, S.~Tarkoma, Y.~Li, S.~Srirama, and R.~Buyya, ``Mobile code
+  offloading: from concept to practice and beyond,'' {\em Communications
+  Magazine, IEEE}, vol.~53, no.~3, pp.~80--88, 2015.
+
+\bibitem{cuervo2010maui}
+E.~Cuervo, A.~Balasubramanian, D.-k. Cho, A.~Wolman, S.~Saroiu, R.~Chandra, and
+  P.~Bahl, ``Maui: making smartphones last longer with code offload,'' in {\em
+  Proceedings of the 8th international conference on Mobile systems,
+  applications, and services}, pp.~49--62, ACM, 2010.
+
+\bibitem{chun2011clonecloud}
+B.-G. Chun, S.~Ihm, P.~Maniatis, M.~Naik, and A.~Patti, ``Clonecloud: elastic
+  execution between mobile device and cloud,'' in {\em Proceedings of the sixth
+  conference on Computer systems}, pp.~301--314, ACM, 2011.
+
+\bibitem{flores2013mobile}
+H.~Flores and S.~Srirama, ``Mobile code offloading: should it be a local
+  decision or global inference?,'' in {\em Proceeding of the 11th annual
+  international conference on Mobile systems, applications, and services},
+  pp.~539--540, ACM, 2013.
+
+\bibitem{kosta2012thinkair}
+S.~Kosta, A.~Aucinas, P.~Hui, R.~Mortier, and X.~Zhang, ``Thinkair: Dynamic
+  resource allocation and parallel execution in the cloud for mobile code
+  offloading,'' in {\em INFOCOM, 2012 Proceedings IEEE}, pp.~945--953, IEEE,
+  2012.
+
+\bibitem{flores2013adaptive}
+H.~R. Flores~Macario and S.~Srirama, ``Adaptive code offloading for mobile
+  cloud applications: Exploiting fuzzy sets and evidence-based learning,'' in
+  {\em Proceeding of the fourth ACM workshop on Mobile cloud computing and
+  services}, pp.~9--16, ACM, 2013.
+
+\bibitem{khairy2013smartphone}
+A.~Khairy, H.~H. Ammar, and R.~Bahgat, ``Smartphone energizer: Extending
+  smartphone's battery life with smart offloading,'' in {\em Wireless
+  Communications and Mobile Computing Conference (IWCMC), 2013 9th
+  International}, pp.~329--336, IEEE, 2013.
+
+\bibitem{kemp2012cuckoo}
+R.~Kemp, N.~Palmer, T.~Kielmann, and H.~Bal, ``Cuckoo: a computation offloading
+  framework for smartphones,'' in {\em Mobile Computing, Applications, and
+  Services}, pp.~59--79, Springer, 2012.
+
+\bibitem{AmazonSilk}
+``Amazon silk split browser architecture..''
+  \url{https://s3.amazonaws.com/awsdocs/AmazonSilk/latest/silk-dg.pdf}.
+
+\bibitem{OperaMini}
+``Opera mini architecture and javascript..''
+  \url{http://dev.opera.com/articles/view/opera-mini-and-javascript/}.
+
+\bibitem{ChromeBeta}
+``Data compression proxy in android chrome beta..''
+  \url{https://developers.google.com/chrome/mobile/docs/data-compression}.
+
+\bibitem{wang2013accelerating}
+X.~S. Wang, H.~Shen, and D.~Wetherall, ``Accelerating the mobile web with
+  selective offloading,'' in {\em Proceedings of the second ACM SIGCOMM
+  workshop on Mobile cloud computing}, pp.~45--50, ACM, 2013.
+
+\bibitem{sivakumar2014cloud}
+A.~Sivakumar, V.~Gopalakrishnan, S.~Lee, S.~Rao, S.~Sen, and O.~Spatscheck,
+  ``Cloud is not a silver bullet: A case study of cloud-based mobile
+  browsing,'' in {\em Proceedings of the 15th Workshop on Mobile Computing
+  Systems and Applications}, p.~21, ACM, 2014.
+
+\bibitem{ezyZip}
+``ezyzip: The simple online zip tool.'' \url{http://www.ezyzip.com/}.
+
+\bibitem{olconvert}
+``Online-conver.com.'' \url{http://archive.online-convert.com/convert-to-zip}.
+
+\bibitem{kelenyi2010cloudtorrent}
+I.~Kel{\'e}nyi and J.~K. Nurminen, ``Cloudtorrent-energy-efficient bittorrent
+  content sharing for mobile devices via cloud services,'' in {\em Proceedings
+  of the 7th IEEE on Consumer Communications and Networking Conference (CCNC)},
+  vol.~1, 2010.
+
+\bibitem{huang2012close}
+J.~Huang, F.~Qian, A.~Gerber, Z.~M. Mao, S.~Sen, and O.~Spatscheck, ``A close
+  examination of performance and power characteristics of 4g lte networks,'' in
+  {\em Proceedings of the 10th international conference on Mobile systems,
+  applications, and services}, pp.~225--238, ACM, 2012.
+
+\end{thebibliography}

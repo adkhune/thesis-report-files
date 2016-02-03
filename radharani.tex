@@ -1,0 +1,259 @@
+%\documentclass{article}
+\documentclass{report}
+%\documentclass[12pt, twocolumn]{report}
+%\documentclass[masters, reqno]{csuthesis}
+\setcounter{secnumdepth}{1}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black, %choose some color if you want links to stand out
+    urlcolor=black
+}
+
+\usepackage{titlesec}
+\titleformat{\chapter}
+  {\normalfont\LARGE\bfseries}{\thechapter}{1em}{}
+\titlespacing*{\chapter}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+
+\usepackage[margin=0.5in]{geometry}      % default margins are too big
+\usepackage{graphicx}                  % for \includegraphics
+\usepackage{listings}                  % for typesetting source code
+\lstset{language=Python}
+\usepackage{mathtools}                 % for better typesetting of math
+%\usepackage[round]{natbib}            % for using different bibliography styles
+\bibliographystyle{ieeetr}  
+\usepackage{url}
+%\usepackage{amsmath}
+\usepackage{verbatim}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{black},
+  keywordstyle=\color{black},
+  commentstyle=\color{black},
+  stringstyle=\color{black},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}                 % for typesetting source code
+
+\usepackage{xcolor}
+\usepackage{xparse}
+\NewDocumentCommand{\framecolorbox}{oommm}
+ {% #1 = width (optional)
+  % #2 = inner alignment (optional)
+  % #3 = frame color
+  % #4 = background color
+  % #5 = text
+  \IfValueTF{#1}
+   {\IfValueTF{#2}
+    {\fcolorbox{#3}{#4}{\makebox[#1][#2]{#5}}}
+    {\fcolorbox{#3}{#4}{\makebox[#1]{#5}}}%
+   }
+   {\fcolorbox{#3}{#4}{#5}}%
+ }
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{Report\\
+An application oriented study of offloading while
+choosing between available Network (3G, 4G and WiFi)}
+
+\author{Aditya Khune}
+
+\date{\today}  % Leave this line out to use the current date.
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+
+\begin{abstract}
+Offloading has been widely considered for saving Energy and increasing responsiveness of the mobile
+devices.
+We have surveyed various applications which are likely to benefit from Offloading as suggested by
+important publications. Various type of applications mentioned in the important publications are as follows:
+matrix calculations, natural language translators, speech recognizers, optical character recognizers, image processors, image
+search, online games, video processing and editing, Web-browsers, navigation, face recognition, augmented reality, etc.
+These applications consume large mobile battery, memory, and computational resources.
+Out of those we have listed out 5 applications for experimentations as follows:
+\begin{enumerate}
+\item Matrix Multiplication
+\item Internet Browsers
+\item Zipper
+\item Voice Recognition
+\item Torrents
+\end{enumerate}
+We have done energy analysis and response time analysis of all the above smartphone applications, we have compared the results obtained with the help of available network 3G, 4G and WiFi. In the end of this report I have listed out my findings based on the results obtained with all the experimentations.
+To decrease the interference of the screen while doing energy analysis we run the applications with minimum brightness. Power consumption is measured by monsoon power analysis tool. \\
+
+\underline{Smartphone handsets used:}
+\begin{itemize}
+\item Samsung S3
+\item LG G3
+
+\end{itemize}
+
+\underline{Network:}
+\begin{itemize}
+\item AT \& T's 3G, 4G (HSPA+) Network
+\item Comcast's WiFi Network
+\end{itemize}
+
+\underline{Other Tools:}
+\begin{itemize}
+\item Monsoon Power Measurement Tool
+\item Android Device Bridge (ADB)
+\item Amazon Web Services (AWS)
+\item AWS Command Line Interface (CLI)
+\end{itemize}
+
+\underline{Experimental Setup and Procedure for plotting the plots:}\\
+
+
+We have run each experiment 10 times on each handsets mentioned above, and then averaged out the readings obtained. The lower and higher limit of error bars used in our plots is what we obtained by averaging out the readings on the handsets, and what we are showing in the plots is one sample of the readings obtained. Although there isn's a particular standard used in our plots but generally the lower bar energy wise is for LG G3 and higher side of the error bars is for Samsung S3, and vice a versa for Response time plots. All the experiments are done using 3G, 4G and WiFi networks separately in order to understand the effect of choosing the right network while offloading the tasks and data onto cloud.
+\end{abstract}
+
+%1%%%%%%INTRODUCTION%%%%%%%%INTRODUCTION%%%%%%%%%%INTRODUCTION%%%%%%%INTRODUCTION%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Matrix Operations}
+We have chosen an android app which does matrix operation because most of smartphone applications which include image processing  need a processing of large matrices.
+
+This application calculates values of an Inverse Matrix. Figure~\ref{fig:UmatrixBatteryConsumption} we can see the battery consumption
+of smartphone increases manyfolds as the size of Matrix increases largely because there increase in CPU's energy consumption as number of floating point operations increase. This application calculates Matrix inverse using Adjoint Method. As we can see in the Figure~\ref{fig:UmatrixBatteryConsumption} Offloading the processing for matrix calculation on Cloud saves energy as the matrix size increases, but for small matrix operations (i.e. 3X3 and 4X4) the local processing is suitable as it saves both energy and time.
+\subsection{Results}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=4in]{"GIMP Images/UmatrixBatteryConsumption".png}
+  \caption{Battery Consumption for Matrix Inverse Calculation}
+  \label{fig:UmatrixBatteryConsumption}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=4in]{"GIMP Images/UmatrixTime".png}
+  \caption{Response Time for Matrix Inverse Calculation}
+  \label{fig:UmatrixTime}
+\end{figure}
+
+
+\chapter{Internet Browsers}
+Cloud based Internet Browsers were introduced in order to overcome the processing and energy limitations
+of mobile devices. Already there are a number of cloud-based mobile web browsers that are available in the industry e.g. Amazon Silk \cite{AmazonSilk}, Opera Mini \cite{OperaMini}, Chrome beta \cite{ChromeBeta} etc. Let us understand more about these browsers first.
+Cloud-based Web browsers(\cite{AmazonSilk}, \cite{ChromeBeta}, \cite{OperaMini}, \cite{wang2013accelerating}) use a split architecture where processing of a Mobile web
+browser is offloaded to cloud partially, it involves cloud support for most browsing functionalities such as execution of JavaScript (JS), image transcoding and compression, parsing and rendering web pages.
+Prior research in this area such as \cite{sivakumar2014cloud} shows that CB does not provide clear benefits over Local or device-based browser (e.g. Local Processing) either in energy or download time. Offloading JS to the cloud is not always beneficial, especially when user interactivity is involved \cite{sivakumar2014cloud}. 
+
+We have chosen one of the commercially available Cloud based mobile browser(puffin) and also a Local browser(Firefox) for our experiments. In Figure~\ref{fig:UwebBrowserBatteryConsumption} and \ref{fig:UwebBrowserTime} we have plotted the smartphone readings that we have obtained by measuring data transfer and response time required by these browsers for following websites: 1. www.yahoo.com, 2. www.wikipedia.org, 3. www.amazon.com, 4. www.google.com, 5. www.facebook.com.
+
+We have obtained our readings for a data range starting as low as 150 Kib to a session involving 5 MBs of data transfer to load the webpages. We have observed here that Cloud based web browsers are faster but expensive in terms of energy consumption. For small data transfers it is always suitable to use Local web browser to save both time and battery consumption. For a normal user overall data transfer during the browsing session does not go beyond 5-6 MBs for single session, which means we always will have small data transfers to the cloud and Local browsers show better results for those cases and that's why Cloud based web-browsers aren't very popular.
+
+\subsection{Results}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=6in]{"GIMP Images/UwebBrowserBatteryConsumption".png}
+  \caption{Battery Consumption for torrent downloading}
+  \label{fig:UwebBrowserBatteryConsumption}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=6in]{"GIMP Images/UwebBrowserTime".png}
+  \caption{Response Time while torrent downloading}
+  \label{fig:UwebBrowserTime}
+\end{figure}
+
+
+\chapter{Zipper} %Chapter 1\\
+Here the idea is the processing of zipping the files will be done either locally or on the cloud as directed by the Decision engines. 
+The Zipper is an Android app that we used to compress the files locally. For Cloud based file comprssion we have used online zipping tools such as \cite{ezyZip} and \cite{olconvert}.
+
+In figure 2.3 and figure 2.4 we have given a comparison of energy consumption and
+Response Time while doing Local Processing and Offloaded Processing with varying file sizes. For compressing files we have used pdf and word documents and also MP3 music files in equal size distribution.
+
+\section{Results}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=5in]{"GIMP Images/UzipperBatteryConsumption".png}
+  \caption{Battery Consumption by while file zipping}
+  \label{fig:UzipperBatteryConsumption}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=5in]{"GIMP Images/UzipperResponseTime".png}
+  \caption{Response Time while file zipping}
+  \label{fig:UzipperResponseTime}
+\end{figure}
+
+
+
+\chapter{Voice Recognition and Translation App}
+Google translate is one of the app which uses cloud to do the voice recognition and translation. It also has an offline translation mode which does local processing on the device with small a Neural Network. 
+
+In figure~\ref{fig:UvoiceRecognitionBatteryConsumption} we can see the energy consumption of this app on our devices for a range of words. 
+We have done our experimentations on our handsets using 3G, 4G and WiFi networks for recognizing and translating 20-140 words from English to Marathi translations. 
+\subsection{Results}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=5in]{"GIMP Images/UvoiceRecognitionBatteryConsumption".png}
+  \caption{Battery Consumption while Voice Recognition and Translation App}
+  \label{fig:UvoiceRecognitionBatteryConsumption}
+\end{figure}
+
+
+
+\chapter{Torrents}
+In this strategy the cloud servers are used as a BitTorrent client to download torrent pieces on behalf of a mobile handheld device.
+While the cloud server downloading the torrent pieces, the mobile handheld device switch to sleep mode until the cloud finishes the torrent processes and upload the torrent file in one shot to the handheld device. This strategy saves energy of smartphones
+because downloading torrent pieces from torrent peers consumes more energy than downloading a one
+burst of pieces from the cloud. Similar strategy is proposed by Kelenyi et al. in \cite{kelenyi2010cloudtorrent}
+\subsection{Results}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=5in]{"GIMP Images/UtorrentBatteryConsumption".png}
+  \caption{Battery Consumption for torrent downloading}
+  \label{fig:UtorrentBatteryConsumption}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=5in]{"GIMP Images/UtorrentResponseTime".png}
+  \caption{Response Time while torrent downloading}
+  \label{fig:UtorrentResponseTime}
+\end{figure}
+
+\chapter{My Findings and Conclusion}
+Prior Related Works have shown that we can save energy by offloading the compute intensive tasks onto the cloud, the data transfer required must be low. But by careful observations of the results that we have obtained we have shown that what we should look for in an application is not only 'compute intensive' tasks but compute and 'data intensive tasks' in order to use offloading architecture more effectively. In fact our results show that for only data intensive applications like torrents (not much computing), the cloud computing can be even more useful. We think that the reason behind this is because most of the smartphones today are equipped with advanced processors like quad core CPUs which give them good capacity to deal with even compute intensive applications, but when it comes to data intensive computational tasks offloading to Cloud for computing seems a better option. 
+
+
+
+
+
+
+
+
+\bibliographystyle{plainnat}  % or plain, or many other possibilities
+\bibliography{bibradharani.bib}
+
+
+\end{document}

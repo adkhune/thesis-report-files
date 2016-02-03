@@ -1,0 +1,11 @@
+\contentsline {chapter}{\numberline {1}WHY COMPUTATION OFFLOADING IS A BAD IDEA WHEN OUR AIM IS TO SAVE BATTERY POWER ON SMARTPHONES}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}EXPERIMENTS AND RESULTS}{1}{section.1.1}
+\contentsline {subsection}{Cloud-based Web Browser:}{1}{section*.2}
+\contentsline {subsection}{Cloud-based Mobile Gaming:}{2}{section*.5}
+\contentsline {subsection}{Voice Recognition}{3}{section*.8}
+\contentsline {chapter}{\numberline {2}WHERE COMPUTATION OFFLOADING CAN BE USEFUL}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}EXPERIMENTS AND RESULTS}{5}{section.2.1}
+\contentsline {subsection}{Torrents:}{5}{section*.10}
+\contentsline {subsection}{Matrix Calculator:}{5}{section*.12}
+\contentsline {subsection}{Zipper:}{6}{section*.14}
+\contentsline {chapter}{\numberline {3}Conclusion}{8}{chapter.3}

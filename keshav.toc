@@ -1,0 +1,11 @@
+\contentsline {section}{\numberline {1}Need to choose right network while Offloading}{2}{section.1}
+\contentsline {section}{\numberline {2}Reinforcement Learning(RL) Decision Engine}{2}{section.2}
+\contentsline {subsection}{State-Action Value Function}{2}{section*.3}
+\contentsline {subsubsection}{Set of Possible State Values}{2}{section*.4}
+\contentsline {subsubsection}{Set of Action Values}{2}{section*.5}
+\contentsline {subsubsection}{Representing the Q Table with Penalty values}{2}{section*.6}
+\contentsline {subsubsection}{Algorithm of our Offloading system}{3}{section*.9}
+\contentsline {section}{\numberline {3}Fuzzy Logic Decision Engine}{3}{section.3}
+\contentsline {section}{\numberline {4}Problem with this approach}{4}{section.4}
+\contentsline {section}{\numberline {5}Smartphone Energizer (SE) }{4}{section.5}
+\contentsline {section}{\numberline {6}Our work in comparison to the previous works}{5}{section.6}

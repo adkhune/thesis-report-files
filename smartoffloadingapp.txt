@@ -1,0 +1,147 @@
+package com.example.aditya.smartoffloadingapp;
+
+import android.content.Intent;
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import static com.example.aditya.smartoffloadingapp.R.id.MLAlgorithm;
+
+
+public class MainOffloadingAppActivity extends ActionBarActivity {
+    public final static String EXTRA_MESSAGE = "com.example.aditya.smartoffloadingapp.MESSAGE";
+    public final static String EXTRA_MESSAGE1 = "com.example.aditya.smartoffloadingapp.MESSAGE1";
+
+
+/*    private Spinner spinner, spinnerApp, spinnerCPU;
+    private static final String[]paths = {"Fuzzy Logic", "RL", "RL with NN", "Classification"};
+    private static final String[]pathsApp = {"Fuzzy Logic", "RL", "RL with NN", "Classification"};
+    private static final String[]pathsCPU = {"Fuzzy Logic", "RL", "RL with NN", "Classification"};
+**/
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main_offloading_app);
+
+
+/*        Spinner spinner, spinnerApp, spinnerCPU;
+        String[]paths = {"Fuzzy Logic", "RL", "RL with NN", "Classification"};
+        String[]pathsApp = {"Fuzzy Logic", "RL", "RL with NN", "Classification"};
+        String[]pathsCPU = {"Fuzzy Logic", "RL", "RL with NN", "Classification"};
+**/
+
+/*        spinner = (Spinner)findViewById(R.id.spinner);
+        spinnerApp = (Spinner)findViewById(R.id.spinnerApp);
+        spinnerCPU = (Spinner)findViewById(R.id.spinnerCPU);
+
+        ArrayAdapter<String>adapter = new ArrayAdapter<String>(MainOffloadingAppActivity.this,
+                android.R.layout.simple_spinner_item,paths);
+        ArrayAdapter<String>adapterApp = new ArrayAdapter<String>(MainOffloadingAppActivity.this,
+                android.R.layout.simple_spinner_item,pathsApp);
+        ArrayAdapter<String>adapterCPU = new ArrayAdapter<String>(MainOffloadingAppActivity.this,
+                android.R.layout.simple_spinner_item,pathsCPU);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterApp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterCPU.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adapter);
+        spinnerApp.setAdapter(adapterApp);
+        spinnerCPU.setAdapter(adapterCPU);
+
+
+**/
+/*        spinner.setOnItemSelectedListener(this); **/
+
+    }
+
+
+    public void onButtonClick(View view) {
+
+        Spinner spinner = (Spinner)findViewById(R.id.spinner); //offloading mechanism
+        String offloadingMechanismType = spinner.getSelectedItem().toString();
+
+        CheckBox responseCheckbox = (CheckBox) findViewById(R.id.CheckBoxResponse);//checkbox
+        boolean bRequiresResponse = responseCheckbox.isChecked();
+
+        Spinner spinnerApp = (Spinner)findViewById(R.id.spinnerApp);//Select Application
+        String appType = spinnerApp.getSelectedItem().toString();
+
+        Spinner spinnerLocation = (Spinner)findViewById(R.id.spinnerLocation); //Matrix operation
+        String LocationType = spinnerLocation.getSelectedItem().toString();
+
+        Spinner spinnerCPU = (Spinner)findViewById(R.id.spinnerCPU); //Matrix operation
+        String CPUinstanceType = spinnerCPU.getSelectedItem().toString();
+
+/*        ArrayAdapter<String>adapter = new ArrayAdapter<String>(MainOffloadingAppActivity.this,
+                android.R.layout.simple_spinner_item,paths);
+        ArrayAdapter<String>adapterApp = new ArrayAdapter<String>(MainOffloadingAppActivity.this,
+                android.R.layout.simple_spinner_item,pathsApp);
+        ArrayAdapter<String>adapterCPU = new ArrayAdapter<String>(MainOffloadingAppActivity.this,
+                android.R.layout.simple_spinner_item,pathsCPU);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterApp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterCPU.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adapter);
+        spinnerApp.setAdapter(adapterApp);
+        spinnerCPU.setAdapter(adapterCPU);
+
+**/
+
+
+if(offloadingMechanismType.equals("Fuzzy Logic")) {
+
+    Intent fuzzyscreen = new Intent(this, FuzzyLogicDisplay.class);
+
+/*    EditText editText = (EditText) findViewById(R.id.dataEdit); **/
+
+    Spinner spinnerMechanismText = (Spinner)findViewById(R.id.spinner);
+    Spinner spinnerAppText = (Spinner)findViewById(R.id.spinnerApp);
+
+
+    String messageMechanism = spinnerMechanismText.getSelectedItem().toString();
+    fuzzyscreen.putExtra(EXTRA_MESSAGE, messageMechanism);
+
+    String messageApp = spinnerAppText.getSelectedItem().toString();
+    fuzzyscreen.putExtra(EXTRA_MESSAGE1,messageApp);
+
+    startActivity(fuzzyscreen);
+
+}
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main_offloading_app, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+}
+

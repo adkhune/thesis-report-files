@@ -1,0 +1,638 @@
+%\documentclass{article}
+\documentclass{report}
+%\documentclass[12pt, twocolumn]{report}
+%\documentclass[masters, reqno]{csuthesis}
+\setcounter{secnumdepth}{1}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black, %choose some color if you want links to stand out
+    urlcolor=black
+}
+
+
+
+\usepackage[margin=0.5in]{geometry}      % default margins are too big
+\usepackage{graphicx}                  % for \includegraphics
+\usepackage{listings}                  % for typesetting source code
+\lstset{language=Python}
+\usepackage{mathtools}                 % for better typesetting of math
+%\usepackage[round]{natbib}            % for using different bibliography styles
+\bibliographystyle{ieeetr}  
+\usepackage{url}
+%\usepackage{amsmath}
+\usepackage{verbatim}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{black},
+  keywordstyle=\color{black},
+  commentstyle=\color{black},
+  stringstyle=\color{black},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}                 % for typesetting source code
+
+\usepackage{xcolor}
+\usepackage{xparse}
+\NewDocumentCommand{\framecolorbox}{oommm}
+ {% #1 = width (optional)
+  % #2 = inner alignment (optional)
+  % #3 = frame color
+  % #4 = background color
+  % #5 = text
+  \IfValueTF{#1}
+   {\IfValueTF{#2}
+    {\fcolorbox{#3}{#4}{\makebox[#1][#2]{#5}}}
+    {\fcolorbox{#3}{#4}{\makebox[#1]{#5}}}%
+   }
+   {\fcolorbox{#3}{#4}{#5}}%
+ }
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{Report\\
+An application oriented study of offloading while
+choosing between available Network (3G, 4G and WiFi)}
+
+\author{Aditya Khune}
+
+\date{\today}  % Leave this line out to use the current date.
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+
+\begin{abstract}
+Offloading has been widely considered for saving Energy and increasing responsiveness of the mobile
+devices.
+We have surveyed various applications which are likely to benefit from Offloading as suggested by
+important publications. Various type of applications mentioned in the important publications are as follows:
+matrix calculations, natural language translators, speech recognizers, optical character recognizers, image processors, image
+search, online games, video processing and editing, Web-browsers, navigation, face recognition, augmented reality, etc.
+These applications consume large mobile battery, memory, and computational resources.
+Out of those we have listed out 5 applications for experimentations as follows:
+\begin{enumerate}
+\item Matrix Multiplication
+\item Internet Browsers
+\item Zipper
+\item Voice Recognition
+\item Torrents
+\end{enumerate}
+We have done energy analysis and response time analysis of all the above smartphone applications, we have compared the results obtained with the help of available network 3G, 4G and WiFi. In the end of this report I have listed out my findings based on the results obtained with all the experimentations.
+To decrease the interference of the screen while doing energy analysis we run the applications with minimum brightness. Power consumption is measured by monsoon power analysis tool. \\
+
+\underline{Smartphone handsets used:}
+\begin{itemize}
+\item Samsung S3
+\item LG G3
+
+\end{itemize}
+
+\underline{Network:}
+\begin{itemize}
+\item AT \& T's 3G, 4G (HSPA+) Network
+\item Comcast's WiFi Network
+\end{itemize}
+
+\underline{Other Tools:}
+\begin{itemize}
+\item Monsoon Power Measurement Tool
+\item Android Device Bridge (ADB)
+\item Amazon Web Services (AWS)
+\item AWS Command Line Interface (CLI)
+\end{itemize}
+
+\underline{Experimental Setup and Procedure for plotting the plots:}\\
+
+
+We have run each experiment 10 times on each handsets mentioned above, and then averaged out the readings obtained. The lower and higher limit of error bars used in our plots is what we obtained by averaging out the readings on the handsets, and what we are showing in the plots is one sample of the readings obtained. Although there isn's a particular standard used in our plots but generally the lower bar energy wise is for LG G3 and higher side of the error bars is for Samsung S3, and vice a versa for Response time plots. All the experiments are done using 3G, 4G and WiFi networks separately in order to understand the effect of choosing the right network while offloading the tasks and data onto cloud.
+\end{abstract}
+
+
+%1%%%%%%INTRODUCTION%%%%%%%%INTRODUCTION%%%%%%%%%%INTRODUCTION%%%%%%%INTRODUCTION%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Introduction} %Chapter 1\\
+\label{chap:Introduction}
+
+Faster network speeds and rapid innovations in Mobile technologies have changed the way we used our computers. Thanks to new operating system architectures such as Android and iOS, the number of applications on our smartphones have literally exploded. An average American spends around 2 hours and 40 minutes a day on their smartphone \cite{averageAmerican}; and unfortunately most of the time these users face an annoying situation where they have to recharge their handsets twice per day. 
+  
+Today's smartphones offer variety of complex applications, larger communication bandwidth and more processing power. But this has increased the burden on its energy usage; while it is seen that advances in battery capacity do not keep up with the requirements of the modern user.
+
+Cloud Computing has drawn attention of Mobile technologies due to the increasing demand of applications, for processing power, storage place, and energy. Cloud computing promises the availability of infinite resources, and it mainly operates with utility computing model, where consumers pay on the basis of their usage. Vast amount of applications such as social networks, location based services, sensor based health-care apps, gaming apps etc. can benefit from mobile Cloud Computing.
+
+Offloading Mobile computation on cloud is being widely considered for saving energy and increasing responsiveness of mobile devices.
+The potential of code offloading lies in the ability to sustain power hungry applications by identifying and managing energy consuming resources of the mobile device by offloading them onto cloud. 
+
+Currently most of the research work in this area is focused on providing the device with a offloading logic based on its local context. In this work we have done an application oriented study of offloading which also involves the results of offloading with variety of available networks (3G, 4G and WiFi). We have proposed a Reinforcement Learning (RL) based system which will help smartphone choose the right network. 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=5in]{"GIMP Images/OffloadingSystemModel".png}
+  \caption{Offloading System Model}
+  \label{fig:OffloadingSystemModel}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Background}
+
+The energy saved by computation offloading depends on the wireless bandwidth B, the amount of computation to be performed C, and the amount of data to be transmitted D. Existing studies thus focus on determining whether to offload computation by predicting
+the relationships among these three factors \cite{kumar2010cloud}.
+
+Multiple research works have proposed different strategies to empower mobile devices with Intelligent Offloading System.
+We have shown a basic offloading architecture in the Fig.~\ref{fig:OffloadingSystemModel}. Offloading relies on remote servers to execute code delegated by a mobile device.
+
+In the architecture that is presented in \cite{flores2015mobile} the client is composed of \textit{a code profiler, system profilers}, and \textit{a decision engine}. The server contains the surrogate platform to invoke and execute code.
+
+The \textit{code profiler} determines \textit{what to offload} (portions of code: Method, Thread, or Class). Code partitioning
+requires the selection of the code to be offloaded. Code can be partitioned through different strategies; for instance, in \cite{cuervo2010maui} special static annotations are used by a software developer to select the code that should be offloaded. In \cite{chun2011clonecloud} authors have presented an automated mechanism which analyzes the code during runtime. Automated mechanisms are preferable over static ones as they can adapt the code to be executed in different devices.  
+
+\textit{System profilers} monitor multiple parameters of the smartphone, such as available bandwidth, data size to transmit, and
+energy to execute the code. We look to these parameters to know \textit{when to offload} to the cloud. 
+
+\textit{The decision engine} analyzes the parameters from System and code profilers and applies certain logic over them to deduce \textit{when to offload}. If the engine concludes a positive outcome, the offloading system is activated, which sends the required data and the code is invoked remotely on the cloud; otherwise, the processing is performed locally.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Challenges in Code Offloading}
+
+The Offloading technique is far from being adopted in the design of current mobile architectures; this is because utilization of code offloading in real scenarios proves to be mostly negative \cite{flores2013mobile}, which means that the device spends
+more energy in the offloading process than the actual energy that is saved. In this section we highlight the challenges and obstacles in deploying code offloading.
+
+We found out that Network Inconsistency is a major concern while we want to offload the processing on cloud. Network Inconsistency is studied in detail in Chapter.
+
+It is very difficult to evaluate runtime properties of code, the code will have non-deterministic behavior during runtime, it is difficult to estimate the running cost of a piece of code considered for offloading \cite{flores2015mobile}. The code in consideration of offloading, might become intensive based on factors such as the user input, type of application, execution environment, available memory, etc. \cite{flores2013mobile}.
+
+Code partitioning is one of the mechanisms considered by researchers. Code partitioning relies on the expertise of the software developer, the main idea is to annotate portions of code statically. These annotations can cause poor flexibility to execute the app in different mobile devices, it can cause unnecessary code offloading that drains energy. Automated strategies are shown to be ineffective, and need a major low-level modification in the core system of the mobile platform, which lead to privacy issues \cite{flores2015mobile}.
+
+The Offloading Decision engine in the mobile device should consider not only the potential energy savings, but also the response time of the request. It can also be argued that, as the computational capabilities of the latest smartphones are comparable to some servers running in the cloud, in such case why to offload.
+
+In this work we have tried to address some of these challenges by using Reinforcement Learning(RL) Decision Engine for Offloading Process.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Contributions}
+\begin{itemize} 
+
+\item In this work, we present a novel adaptive offloading technique called ‘Reward Based Offloading System’ that uses Reinforcement Learning (RL) and Fuzzy Logic to deduce right offloading decision. The decision is taken so that offloading is guaranteed to optimize both the response time and energy consumption. This method is classified as an 'Unsupervised learning' method. We have also used Neural Network to test our Reward based Machine Learning mechanism in a Simulated environment.
+\item Further we have used 'Supervised learning' methods such as Linear Logistic Regression and Linear Discriminant Analysis to create the offloading decision engines. 
+\item We have also compared our proposed techniques with prior work in the offloading domain that propose to empower Decision Engines with offloading logic for instance Decision Engine with SVR, Fuzzy Logic Engine, and other supervised Learning techniques.
+\item We have studied the viability of offloading solutions, with the help of benchmark applications to analyze right kind of applications which may benefit from effective Offloading Architecture. During the evaluation, we run these applications under various situations (i.e. different locations, usage, and networks characteristics).
+
+
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Outline}
+The rest of the Report is organized as follows:
+\begin{itemize}
+	
+	
+	\item In \autoref{chap:RelatedWork} We have given an overview of Prior Works in Offloading Domain.
+	\item We have conducted extensive experiments in order to do application oriented study in \autoref{chap:applicationorientedstudy}. We have presented our results of five selected applications which were tested in different network scenarios. 
+	\item In \autoref{chap:NetworkInconsistency} we talk about the need to choose right network from the available networks in order to be able to save energy consumption and response time on smartphones.
+	\item In \autoref{chap:SmartDecisionEngine} we have discussed about the use of Reinforcement Learning(RL) in creating an offloading decision engine for smartphones.
+	
+
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%2%%%%%%RELATEDWORK%%%%%%%%RELATEDWORK%%%%%%%%%%RELATEDWORK%%%%%%%RELATEDWORK%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Prior Works in Offloading Domain} %Chapter 3\\
+\label{chap:RelatedWork}
+
+A large amount of work has been done in the area of Smartphone Offloading for mobile devices in
+recent years. Since advances in smartphone processing and storage technology outpaces the advances in the battery
+technology, computation offloading has been seen as a potential solution for the smartphone’s energy bottleneck problem.
+In this Section, we give an overview of the research in computation offloading and energy efficiency of Smartphones.
+
+In \cite{cuervo2010maui} authors have proposed a system called MAUI, it has a strategy based on code annotations to determine which methods from a Class must be offloaded. Annotations are introduced within the source code by the developer at development phase itself. At runtime, methods are identified by the MAUI profiler, which basically performs the offloading over the methods, if bandwidth of the network and data transfer conditions are ideal. MAUI optimizes both the energy consumption and execution
+time using an optimization solver.
+
+%----------please change sentences in below part---------------------
+In \cite{chun2011clonecloud} authors have proposed CloneCloud, which is a system for elastic execution between mobile and
+cloud through dynamic application partitioning, where a thread of the application is migrated to a clone of the
+smartphone in the cloud. CloneCloud is like MAUI since it uses dynamic profiling and optimization solver, but CloneCloud goes a step further as partitioning takes place without the developer intervention; application partitioning is based on static analysis to specify the migration and reintegration points in the application. 
+
+In \cite{kumar2010cloud} authors have formulated an equation of several parameters
+to measure whether computation offloading to cloud would
+save energy or not . These parameters are network
+bandwidth, cloud processing speed, device processing
+speed, the number of transferred bytes, and the energy
+consumption of a smartphone when it’s in idle, processing
+and communicating states. In this concept paper, the
+authors only discussed these various parameters and did not
+experiment their work in a real offloading framework.
+
+More recently, \cite{kosta2012thinkair} proposed ThinkAir which is a
+computation offloading system that is similar to MAUI and
+cloudclone; ThinkAir does not only focus on the offloading
+efficiency but also on the elasticity and scalability of the
+cloud side; it boosts the power of mobile cloud computing
+through parallelizing method execution using multiple
+virtual machine images. 
+%--------------------------------------------------------------------
+In Papers \cite{flores2013adaptive}, \cite{khairy2013smartphone} and \cite{kemp2012cuckoo} Authors have concentrated on Adaptive Learning of Offloading Decision Engines. We will study some of their strategies in later part of this report. 
+
+%3%%%%%%OverviewMachineLearning%%%%%%%%OverviewMachineLearning%%%%%%%%%%OverviewMachineLearning%%%%%%%OverviewMachineLearning%%%%%
+\chapter{Overview of Machine Learning Techniques used for Offloading Engine} %Chapter 4\\
+\label{chap:OverviewMachineLearning}
+
+\section{Reinforcement Learning(RL)}
+Reinforcement learning is learning by interacting with an environment. An RL agent learns from the consequences of its actions, rather than from being explicitly taught and it selects its actions on basis of its past experiences (exploitation) and also by new choices (exploration), which is essentially trial and error learning. The reinforcement signal that the RL-agent receives is a numerical reward, which encodes the success of an action's outcome, and the agent seeks to learn to select actions that maximize the accumulated reward over time.\par
+A reinforcement learning engine interacts with its environment in discrete time steps. At each time t, the agent receives an observation $O_t$, which typically includes the reward $r_t$. It then chooses an action $a_t$ from the set of actions available, which is subsequently sent to the environment. The environment moves to a new state $s_{t+1}$ and the reward $r_{t+1}$ associated with the transition $(s_t,a_t,s_{t+1})$ is determined. The goal of a reinforcement learning agent is to collect as much reward as possible. The agent can choose any action as a function of the history and it can even randomize its action selection.  \par
+Reinforcement learning is particularly well suited to problems which include a long-term versus short-term reward trade-off. It has been applied successfully to various problems, including robot control, elevator scheduling, telecommunications, etc. \par
+The basic reinforcement learning model consists of:
+\begin{itemize}
+    \item a set of environment states $S$;
+    \item a set of actions $A$;
+    \item rules of transitioning between states;
+    \item rules that determine the scalar immediate reward of a transition
+\end{itemize}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=2in]{"GIMP Images/RL".png}
+  \caption{Choose from available actions with best Reinforcement History}
+  \label{fig:RL}
+\end{figure}
+
+We want to choose the action that we predict will result in the best possible future from the current state in Figure~\ref{fig:RL}. Need a value that represents the future outcome. With the correct values, multi-step decision problems are reduced to single-step decision problems. Just pick action with best value and its guaranteed to find optimal multi-step solution! The utility or cost of a single action taken from a state is the reinforcement for that action from that state. The value of that state-action is the expected value of the full return or the sum of reinforcements that will follow when that action is taken.\par
+Say we are in state $s_t$ at time $t$. Upon taking action $a_t$ from that state we observe the one step reinforcement $r_{t+1}$, and the next state $s_{t+1}$. Say this continues until we reach a goal state, $K$ steps later we have return as:
+ \begin{align*}
+      R_t = \sum_{k=0}^K r_{t+k+1}
+  \end{align*}
+So the aim of Reinforcement Learning algorithm generally is either to maximize or minimize the reinforcements $R_t$ depending upon our Reinforcement function.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Q Function}
+A function called $Q$ function stores the reinforcement values for each case it encounters, some more mathematics about this $Q$ function which is used in RL algorithm is shown here:
+
+The state-action value function is a function of both state and action and its value is a prediction of the expected sum of future reinforcements. We will call the state-action value function $Q$.
+\begin{align*}
+      Q(s_t,a_t) \approx \sum_{k=0}^\infty r_{t+k+1}
+\end{align*}
+
+here $s_t$ = state, $a_t$ = actions, and $r_t$ = reinforcements received.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Reinforcement Learning Objective}
+The objective for any reinforcement learning problem is to find the sequence of actions that maximizes (or minimizes) the sum of reinforcements along the sequence. This is reduced to the objective of acquiring the Q function the predicts the expected sum of future reinforcements, because the correct Q function determines the optimal next action.
+
+So, the RL objective is to make this approximation as accurate as possible:
+\begin{align*}
+      Q(s_t,a_t) \approx \sum_{k=0}^\infty r_{t+k+1}
+\end{align*}
+
+This is usually formulated as the least squares objective:
+
+
+    \begin{align*}
+      \text{Minimize } \mathrm{E} \left ( \sum_{k=0}^\infty r_{t+k+1} - Q(s_t,a_t)\right )^2
+    \end{align*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{comment}
+\section{Reinforcement Learning (RL) with Neural Network (NN)}
+
+Neural network models in artificial intelligence are usually referred to as artificial neural networks (ANNs); these are essentially simple mathematical models defining a function $\textstyle f : X \rightarrow Y $ or a distribution over $\textstyle X $ or both $\textstyle X $ and $\textstyle Y$, but sometimes models are also intimately associated with a particular learning algorithm or learning rule. A common use of the phrase "ANN model" is really the definition of a class of such functions (where members of the class are obtained by varying parameters, connection weights, or specifics of the architecture such as the number of neurons or their connectivity).
+%\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fuzzy Logic}
+Fuzzy Logic deals with approximate rather than fixed reasoning, and it has capabilities to react to continuous changes of the dependent variables. The decision of offloading processing components to cloud becomes a variable, and controlling this variable can be a complex task due to many real-time constraints of the overall mobile and cloud system parameters.
+
+\section{Linear Discriminant Analysis (LDA)}
+In machine learning, classification is the problem of identifying to which of a set of categories a new observation belongs, on the basis of a training set of data containing observations (or instances) whose category membership is known. Classification is considered an instance of supervised learning, i.e. learning where a training set of correctly identified observations is available.
+An algorithm that implements classification, especially in a concrete implementation, is known as a classifier. 
+
+Linear discriminant analysis (LDA) makes use of a Bayesian approach to classification in which parameters are considered as random variables of a prior distribution. This concept is fundamentally different from data-driven linear and non-linear discriminant analyses in which what is learned is a function that maps or separates samples to a class. Bayesian estimation and the application of LDA is also known as generative modeling.
+
+\section{Linear Logistic Regression}
+Similar to LDA, linear logistic regression (LLR) is a technique used to derive a linear
+model that directly predicts $p(C_k |x_n ) $, however it does this by determining linear
+boundaries that maximize the likelihood of the data from a set of class samples instead of
+invoking Bayes’ theorem and generating probabilistic models from priori information.
+
+
+\chapter{Application Oriented Study of Offloading}
+\label{chap:applicationorientedstudy}
+
+\section{Matrix Operations}
+We have chosen an android app which does matrix operation because most of smartphone applications which include image processing  need a processing of large matrices.
+
+This application calculates values of an Inverse Matrix. Figure~\ref{fig:UmatrixBatteryConsumption} we can see the battery consumption
+of smartphone increases manyfolds as the size of Matrix increases largely because there increase in CPU's energy consumption as number of floating point operations increase. This application calculates Matrix inverse using Adjoint Method. As we can see in the Figure~\ref{fig:UmatrixBatteryConsumption} Offloading the processing for matrix calculation on Cloud saves energy as the matrix size increases, but for small matrix operations (i.e. 3X3 and 4X4) the local processing is suitable as it saves both energy and time.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=5in]{"GIMP Images/UmatrixBatteryConsumption".png}
+  \caption{Battery Consumption for Matrix Inverse Calculation}
+  \label{fig:UmatrixBatteryConsumption}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=5in]{"GIMP Images/UmatrixTime".png}
+  \caption{Response Time for Matrix Inverse Calculation}
+  \label{fig:UmatrixTime}
+\end{figure}
+
+\section{Internet Browsers}
+Cloud based Internet Browsers were introduced in order to overcome the processing and energy limitations
+of mobile devices. Already there are a number of cloud-based mobile web browsers that are available in the industry e.g. Amazon Silk \cite{AmazonSilk}, Opera Mini \cite{OperaMini}, Chrome beta \cite{ChromeBeta} etc. Let us understand more about these browsers first.
+Cloud-based Web browsers(\cite{AmazonSilk}, \cite{ChromeBeta}, \cite{OperaMini}, \cite{wang2013accelerating}) use a split architecture where processing of a Mobile web
+browser is offloaded to cloud partially, it involves cloud support for most browsing functionalities such as execution of JavaScript (JS), image transcoding and compression, parsing and rendering web pages.
+Prior research in this area such as \cite{sivakumar2014cloud} shows that CB does not provide clear benefits over Local or device-based browser (e.g. Local Processing) either in energy or download time. Offloading JS to the cloud is not always beneficial, especially when user interactivity is involved \cite{sivakumar2014cloud}. 
+
+We have chosen one of the commercially available Cloud based mobile browser(puffin) and also a Local browser(Firefox) for our experiments. In Figure~\ref{fig:UwebBrowserBatteryConsumption} and \ref{fig:UwebBrowserTime} we have plotted the smartphone readings that we have obtained by measuring data transfer and response time required by these browsers for following websites: 1. www.yahoo.com, 2. www.wikipedia.org, 3. www.amazon.com, 4. www.google.com, 5. www.facebook.com.
+
+We have obtained our readings for a data range starting as low as 150 Kib to a session involving 5 MBs of data transfer to load the webpages. We have observed here that Cloud based web browsers are faster but expensive in terms of energy consumption. For small data transfers it is always suitable to use Local web browser to save both time and battery consumption. For a normal user overall data transfer during the browsing session does not go beyond 5-6 MBs for single session, which means we always will have small data transfers to the cloud and Local browsers show better results for those cases and that's why Cloud based web-browsers aren't very popular.
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=6in]{"GIMP Images/UwebBrowserBatteryConsumption".png}
+  \caption{Battery Consumption for Web Browsers}
+  \label{fig:UwebBrowserBatteryConsumption}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=6in]{"GIMP Images/UwebBrowserTime".png}
+  \caption{Response Time for page loading in Web Browsers}
+  \label{fig:UwebBrowserTime}
+\end{figure}
+
+\section{Zipper} %Chapter 1\\
+Here the idea is the processing of zipping the files will be done either locally or on the cloud as directed by the Decision engines. 
+The Zipper is an Android app that we used to compress the files locally. For Cloud based file comprssion we have used online zipping tools such as \cite{ezyZip} and \cite{olconvert}.
+
+In Figure~\ref{fig:UzipperBatteryConsumption} and Figure~\ref{fig:UzipperResponseTime} we have given a comparison of energy consumption and Response Time while doing Local Processing and Offloaded Processing with varying file sizes. For compressing files we have used pdf and word documents and also MP3 music files in equal size distribution.
+
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=5in]{"GIMP Images/UzipperBatteryConsumption".png}
+  \caption{Battery Consumption by while file zipping}
+  \label{fig:UzipperBatteryConsumption}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=5in]{"GIMP Images/UzipperResponseTime".png}
+  \caption{Response Time while file zipping}
+  \label{fig:UzipperResponseTime}
+\end{figure}
+
+\section{Voice Recognition and Translation App}
+Google translate is one of the app which uses cloud to do the voice recognition and translation. It also has an offline translation mode which does local processing on the device with small a Neural Network. 
+
+In figure~\ref{fig:UvoiceRecognitionBatteryConsumption} we can see the energy consumption of this app on our devices for a range of words. 
+We have done our experimentations on our handsets using 3G, 4G and WiFi networks for recognizing and translating 20-140 words from English to Marathi translations. 
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=5in]{"GIMP Images/UvoiceRecognitionBatteryConsumption".png}
+  \caption{Battery Consumption while Voice Recognition and Translation App}
+  \label{fig:UvoiceRecognitionBatteryConsumption}
+\end{figure}
+
+\section{Torrents}
+In this strategy the cloud servers are used as a BitTorrent client to download torrent pieces on behalf of a mobile handheld device.
+While the cloud server downloading the torrent pieces, the mobile handheld device switch to sleep mode until the cloud finishes the torrent processes and upload the torrent file in one shot to the handheld device. This strategy saves energy of smartphones
+because downloading torrent pieces from torrent peers consumes more energy than downloading a one
+burst of pieces from the cloud. Similar strategy is proposed by Kelenyi et al. in \cite{kelenyi2010cloudtorrent}
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=5in]{"GIMP Images/UtorrentBatteryConsumption".png}
+  \caption{Battery Consumption for torrent downloading}
+  \label{fig:UtorrentBatteryConsumption}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=5in]{"GIMP Images/UtorrentResponseTime".png}
+  \caption{Response Time while torrent downloading}
+  \label{fig:UtorrentResponseTime}
+\end{figure}
+
+
+\chapter{Dealing with Multiple Networks and Network Inconsistency in Smartphones} %Chapter 1\\
+\label{chap:NetworkInconsistency}
+
+Many prior works in Offloading have proposed an offloading decision engine which will consider the parameters on the device and on cloud to make a correct offloading decision. An Offloading Decision Engine requires a consistent network performance for offloading. However, such consistency is difficult to achieve because of frequent mobile user movements and unstable network quality which varies depending upon the Location of the device, load on the network. The power consumed by the network radio interface is known to contribute a considerable fraction of the total device power. 
+
+With recent advent of 4G LTE networks, there has been increased interest in the offloading domain, but our results show that 4G is less power efficient compared to WiFi, and even less power efficient than 3G which is also mentioned in some of the prior works \cite{huang2012close}.
+4G phones are supposed to be even faster, but that's not always the case.
+
+\section{Need to choose right network while Offloading}
+With the advances in networking technology we have 4G available to us, but it is seen that 4G consumes more energy than 3G and WiFi.
+
+In general, anything involving transferring large amounts of data gets a big boost from 4G. If you live in an area that doesn't have 4G coverage, there's no advantage to a 4G phone. In fact, our experiments show that there are serious battery life problems if you buy an LTE phone and don't disable 4G LTE, as the radio's search for a non-existent signal will drain your battery quickly.
+
+Level of connection on 4g will greatly affect your battery life. Meaning, if you have a weak signal your device will be using more power to get data sent and received to and from the network, which will eat your battery up. A strong 4g signal will of course use less battery, the biggest problem is the constant switching from 4G to 3G and back again.
+
+
+To counter the Network Inconsistency on the device and to optimize the offloading experience we have proposed a novel offloading technique based on Machine Learning which helps a device choose between the available networks with varying conditions. In the next Section we have described this system in detail.
+
+\chapter{Smart Offloading Decision Engines to Choose between Availble networks and Counter Network Inconsistency}
+\label{chap:SmartDecisionEngine}
+
+\section{Reinforcement Learning(RL) Decision Engine}
+In this section we have explored Reinforcement Learning to create a decision engine for the offloading
+process. Reinforcement learning is learning by interacting with an environment. Reinforcement Learning
+(RL) differs from standard supervised learning in that correct input/output pairs are never presented.
+
+Here we are using RL for a Single-step decision problem; RL can be used for Multi-Step decision problems.
+I have explained how the offloading decision process can benefit from Reinforcement Learning and also
+presented different scenarios where it can used to improve the overall offloading decision process.
+
+\subsection{State-Action Value Function}
+The state-action value function is a function of both state and action and its value is a prediction of the
+expected sum of future reinforcements.
+
+\subsubsection{Set of Possible State Values}
+In our Algorithm State Values are discrete values.
+
+\begin{itemize}
+	
+	\item Location = Home, Office, Traveling
+	\item Data Transferred = Data\_Small, Data\_Medium, Data\_Large
+	\item Time = Morning, Afternoon, Evening, Night
+\end{itemize}
+
+The offloading system extracts the above parameters (such as Location, Time) from the contextual information of the Smartphone device.
+\subsubsection{Set of Action Values}
+Values of Possible Actions are also discrete values.
+
+\begin{itemize}
+	\item Offload using 3G
+	\item Offload using 4G
+	\item Offload using Wi-Fi
+\end{itemize}
+
+\subsubsection{Representing the Q Table with Penalty values}
+Say we are in state $ S_t $ at time $t$. Upon taking action $ a_t $ from that state we observe the one step reinforcement $p$.
+After this we choose another action $a_{t+1}$ in the same state, this continues until we have explored all the Actions. The cost or Penalty of an action taken from a state is the reinforcement for that action from that state. Use the returned Penalty value to choose best Action, where we want to minimize the Penalty. When there is a change in User's Location for instance User moves from Home to Office, We continue the same steps mentioned above.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=3in]{"GIMP Images/PenaltyEquation".png}
+  \caption{PenaltyEquation}
+  \label{fig:PenaltyEquation}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=3in]{"GIMP Images/QTableWithValues".png}
+  \caption{Representing the Q Table with Penalty values}
+  \label{fig:QTableWithValues}
+\end{figure}
+
+
+
+
+\subsubsection{Algorithm of our Offloading system}
+We have developed a partially working prototype of the proposed system as the proof of concept.The prototype implements the basic functionality needed to show the feasibility of the proposed mobile cloud architecture. Below is the algorithm:
+
+\begin{enumerate}
+\item Detect change in the Device's contextual information (Parameters such as Location (Home, Office, etc) and Time-Period (Morning, Afternoon, Evening and Night))
+
+\item Activate 3G radio interface of the device.
+\item Download a file ($ data\_size = data\_small $) from the Cloud. Measure the Battery and time consumed for the operation.
+\item Upload same file on the cloud. Measure the Battery and time consumed for the operation.
+\item Calculate the penalty $p$ with the help of equation in figure~\ref{fig:PenaltyEquation}
+\item form a Key-Value pair as follows:
+
+\{Location-TimePeriod-data\_size:penalty\} where
+
+Key = Location-TimePeriod-data\_size
+
+Value = Calculated penalty $p$
+
+\item Update the Q-table with the calculated penalty values as shown in figure~\ref{fig:QTableWithValues}.
+\item Repeat steps 2-7 above for ($ data\_size = data\_medium and data\_large $)
+\item Repeat steps 2-8 above for 4G and Wi-Fi connection if available.
+\end{enumerate}
+
+The application with offloading mechanism will refer to the updated Q-table to make a right decision of choosing the network
+for offloading the required computing and data on the cloud. The application will look for the minimum penalty values available in the Q-table. The values of constants are $ x = 0.5 $ and $ y = 0.5 $ for both optimized battery and performance time, if user prefers better battery performance than elapsed processing time of the application then we change the values to $ x = 0.9 $ and $ y = 0.1 $. For example when the user is traveling he might prefer to save his battery power than worrying about the processing time; whereas when the battery charge isn't a sudden problem for the user then he might choose for optimized performance time, in that case we need to change the constant value to $x = 0.1$ and $y = 0.9$.
+
+The Network Inconsistency is also taken care in our Algorithm as we have included the Location parameters in the state values to train our $Q-function$.
+
+\section{RL with Neural Network}
+In this section we have used Neural Network to test our Reward based Machine Learning mechanism in a Simulated environment.
+I have developed a Neural Network code in Python and have demonstrated results.
+In this algorithm we have simulated 10 different locations a user goes through (Locations 0-9) as shown in the x-axis of topmost figure in \ref{fig:RL_NN}; on Y-axis we have shown the Reinforcements recieved by the offloading system, for '-1' the system decides to do local processing because the conditions are not suitable, for '0' we offload the processing on Local servers, and for '1' we offload on remote cloud servers; On Z axis we have shown The Reinforcements of Response Time of the app processing. As we can see these locations have certain attributes assigned to them with random values. For instance as the user goes from location 0 to 9, the network bandwidth available to him increases.
+We can specify for how many iterations we want to train our $Q-function$ and also the hidden layers of the Neural Network is customizable. After sufficient training the 3-D Contour of $Q Model$ looks as shown in the middle-right portion of the figure~\ref{fig:RL_NN}, below that is just the top view of the contour. On the middle-left figure are the different trials of the action taken by the offloading system while going from Location 0-9.   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=7in]{"GIMP Images/RL_NN_newone".png}
+  \caption{Reinforcement Learning (RL) with Neural Network (NN)}
+  \label{fig:RL_NN}
+\end{figure}
+
+
+\begin{itemize}
+   \item -1 for Local processing
+   \item 0 for Offloading on Local Servers
+   \item 1 for Offloading on Remote Servers
+\end{itemize}      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+In the figure~\ref{fig:RL_NN} we can see the surface plot of our trained $Q$ function. For these set of results I have customized my Neural Network with no. of hidden layers as (nh) = 5, run for trials (nTrials) = 100 and Steps per trial (nStepsPerTrial) = 10. \par
+
+in the first plot on $x-axis$ we have different locations where the devices is in and location point varies from $0-10$; on $y-axis$ I have plotted the actions recommended by the Q function depending upon the best scenario to save the battery power. So we can see that for location 0, 2 and 3 Local processing is favored by our Q function. When the user moves to different locations between $4-6$ the $Q$ functions choose to Offload the processing on Local servers whereas for locations $6-10$ we should Offload on remote servers. This decision is based on various parameters values present in that location such as `bandwidth available'. \par
+In the `Actions' plot we can see 3-D plot with location and Bandwidth parameters. In the `Max $Q$' plot we can see the maximum values that our Q function has for various locations, the Red part is where we got maximum Reinforcement values. 
+
+\chapter{Prior Related Works}
+\label{chap:PriorRelatedWork}
+
+\section{Fuzzy Logic Decision Engine}
+
+In \cite{flores2013adaptive} the authors have proposed fuzzy decision engine for code offloading, that considers both mobile and cloud variables. At the mobile platform level, the device uses a decision engine based on fuzzy logic, which is utilized to
+combine n number of variables, which are to be obtained from the overall mobile cloud architecture. Fuzzy
+Logic Decision Engine works in three steps namely: Fuzzyfication, Inference and Defuzzification. 
+
+Let us see these steps in detail:
+1) In Fuzzification input data is converted into linguistic variables, which are assigned to a specific
+membership function. 2) A reasoning engine is applied to the variables, which makes an inference based on
+a set of rules. Finally 3) The output from reasoning engine are mapped to linguistic variable sets again(aka
+defuzzyification).
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=3in]{"GIMP Images/FuzzyLogicSystem".png}
+  \caption{Offloading Engine based on Fuzzy Logic}
+  \label{fig:FuzzyLogicSystem}
+\end{figure}
+
+\section{Problem with this approach}
+The distribution of different technologies around the world varies significantly. In India, a country with
+limited broadband infrastructure, 2G remains in active use, while the U.S. and Mexico lean heavily on
+Wi-Fi connections. In figure~\ref{fig:TechnologyDoesntImplySpeed} we have segmented bandwidth into four different buckets: 0 - 150, 150 - 550, 550 - 2000, and 2000+ kbps. We have mapped them into one of the four Connection Classes Poor,
+Moderate, Good, and Excellent.
+Fuzzy Logic is based on simple if-else statements, which is like a hardcoded logic. Because of such
+variations in the different technologies around the world, it is difficult to rely on the fuzzy logic decision
+engine presented in \cite{flores2013adaptive}. This is because the app developers will have to customize the decision engines
+depending upon which part of the world the device lies.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=3in]{"GIMP Images/TechnologyDoesntImplySpeed".png}
+  \caption{Varying Internet Speed across different Countries (Source: Facebook code Community)}
+  \label{fig:TechnologyDoesntImplySpeed}
+\end{figure}
+
+\section{Smartphone Energizer (SE) }
+Smartphone Energizer \cite{khairy2013smartphone} is a supervised learning-based technique for energy efficient computation offloading. In this work authors propose a adaptive, and context-aware offloading technique that uses Support Vector
+Regression (SVR) and several contextual features to predict the remote execution time and energy consumption then takes the offloading decision. The decision is taken so that offloading is guaranteed to optimize both the response time and energy
+consumption.
+
+Smartphone Energizer Client (SEC) initially starts in the learning mode, in which it extracts the different network, device, and application features and stores them after each service invocation. After each local service invocation, the
+Smartphone Energizer’s profiler stores the context parameters which include the service identifier, input size, and output size along with the consumed energy and time during service execution. When the number of local service invocations exceeds the local
+learning capacity, the SEC switches to the remote execution by checking if there's a reachable offloading server, then the service will be installed on the server (for the first time only) and will be executed remotely, otherwise it will be executed locally.
+
+\section{Our work in comparison to the previous works}
+Reinforcement Learning(RL) is a Unsupervised Learning method, our Algorithm is simplistic in comparison to other works like Smartphone Energizer (SE) \cite{khairy2013smartphone} which is a supervised learning method. Our results show that we can save upto 20\%-30\% battery power in the proposed Offloading system while we compare it with prior works (\cite{khairy2013smartphone}, \cite{flores2013adaptive}). 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=5in]{"GIMP Images/UcomparisonMatrix".png}
+  \caption{Energy Consumption by Different Models with Varying percentage of Training for Matrix Operation}
+  \label{fig:EnergyConsumptionDiffModelsMatrix}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=5in]{"GIMP Images/UcomparisonTorrents".png}
+  \caption{Energy Consumption by Different Models with Varying percentage of Training for Torrent file download App}
+  \label{fig:EnergyConsumptionDiffModelsTorrent}
+\end{figure}
+
+
+\bibliographystyle{plainnat}  % or plain, or many other possibilities
+\bibliography{bibcaitanya.bib}
+\end{document}

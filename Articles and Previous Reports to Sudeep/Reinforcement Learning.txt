@@ -1,0 +1,5 @@
+Successes of Reinforcement Learning
+http://umichrl.pbworks.com/w/page/7597597/Successes%20of%20Reinforcement%20Learning
+
+What are some practical applications of reinforcement learning?
+http://www.quora.com/What-are-some-practical-applications-of-reinforcement-learning

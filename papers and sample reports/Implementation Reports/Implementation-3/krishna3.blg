@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: krishna3.aux
+The style file: ieeetr.bst
+Illegal, another \bibstyle command---line 16 of file krishna3.aux
+ : \bibstyle
+ :          {plainnat}
+I'm skipping whatever remains of this command
+Database file #1: bibkrishna3.bib.bib
+Warning--empty journal in adityaRL
+Warning--empty journal in adityaFL
+You've used 4 entries,
+            1876 wiz_defined-function locations,
+            502 strings with 4275 characters,
+and the built_in function-call counts, 859 in all, are:
+= -- 81
+> -- 24
+< -- 0
++ -- 10
+- -- 6
+* -- 55
+:= -- 130
+add.period$ -- 4
+call.type$ -- 4
+change.case$ -- 4
+chr.to.int$ -- 0
+cite$ -- 6
+duplicate$ -- 50
+empty$ -- 94
+format.name$ -- 6
+if$ -- 205
+int.to.chr$ -- 0
+int.to.str$ -- 4
+missing$ -- 4
+newline$ -- 15
+num.names$ -- 4
+pop$ -- 19
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 24
+stack$ -- 0
+substring$ -- 43
+swap$ -- 12
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 2
+while$ -- 10
+width$ -- 5
+write$ -- 37
+(There was 1 error message)

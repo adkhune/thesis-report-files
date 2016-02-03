@@ -1,0 +1,38 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {subsection}{Background}{2}{section*.3}
+\contentsline {subsection}{Challenges in Code Offloading}{2}{section*.4}
+\contentsline {subsection}{Contributions}{2}{section*.5}
+\contentsline {subsection}{Outline}{3}{section*.6}
+\contentsline {chapter}{\numberline {2}Problem Statement}{4}{chapter.2}
+\contentsline {chapter}{\numberline {3}Related Work}{5}{chapter.3}
+\contentsline {chapter}{\numberline {4}Overview of Machine Learning Techniques used for Offloading Engine}{6}{chapter.4}
+\contentsline {section}{\numberline {4.1}Reinforcement Learning(RL)}{6}{section.4.1}
+\contentsline {subsubsection}{Q Function}{7}{section*.8}
+\contentsline {subsubsection}{Reinforcement Learning Objective}{7}{section*.9}
+\contentsline {section}{\numberline {4.2}Reinforcement Learning (RL) with Neural Network (NN)}{8}{section.4.2}
+\contentsline {section}{\numberline {4.3}Fuzzy Logic}{8}{section.4.3}
+\contentsline {section}{\numberline {4.4}Linear Discriminant Analysis (LDA)}{8}{section.4.4}
+\contentsline {section}{\numberline {4.5}Linear Logistic Regression}{8}{section.4.5}
+\contentsline {chapter}{\numberline {5}Smart Offloading Decision Engines}{9}{chapter.5}
+\contentsline {section}{\numberline {5.1}Fuzzy Logic Decision Engine}{9}{section.5.1}
+\contentsline {subsection}{Mobile offloading logic}{9}{section*.10}
+\contentsline {subsection}{Problem with this approach}{10}{section*.12}
+\contentsline {section}{\numberline {5.2}Cuckoo}{11}{section.5.2}
+\contentsline {section}{\numberline {5.3}Smartphone Energizer (SE) }{11}{section.5.3}
+\contentsline {chapter}{\numberline {6}Reward Based Offloading}{12}{chapter.6}
+\contentsline {section}{\numberline {6.1}Reinforcement Learning(RL) Decision Engine for Offloading Process}{12}{section.6.1}
+\contentsline {subsubsection}{The Idea}{13}{section*.14}
+\contentsline {subsection}{State-Action Value Function as a Table:}{13}{section*.15}
+\contentsline {subsubsection}{State Values}{13}{section*.16}
+\contentsline {subsubsection}{Action Values}{13}{section*.17}
+\contentsline {subsubsection}{Representing the Q Table}{14}{section*.18}
+\contentsline {subsubsection}{The Agent-Environment Interaction Loop}{14}{section*.20}
+\contentsline {subsubsection}{Significance of Reinforcements received}{14}{section*.21}
+\contentsline {subsubsection}{ How the actual app will run ?}{15}{section*.23}
+\contentsline {subsubsection}{Code}{16}{section*.26}
+\contentsline {section}{\numberline {6.2}RL with Neural Network}{17}{section.6.2}
+\contentsline {subsubsection}{Code}{18}{section*.29}
+\contentsline {chapter}{\numberline {7}Experiments and Results}{20}{chapter.7}
+\contentsline {chapter}{\numberline {8}Discussion and Future Work}{23}{chapter.8}
+\contentsline {subsection}{\textit {What is the recent trend in Smartphone app and Cloud Industry which encourages offloading services}}{23}{section*.34}
+\contentsline {subsection}{\textit {What kind of applications can benefit from this work}}{23}{section*.35}

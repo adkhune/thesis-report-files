@@ -1,0 +1,10 @@
+\BOOKMARK [0][-]{chapter.1}{Network Inconsistency}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Need to choose right network while Offloading}{chapter.1}% 2
+\BOOKMARK [0][-]{chapter.2}{Smart Offloading Decision Engines to Counter Network Inconsistency}{}% 3
+\BOOKMARK [1][-]{section.2.1}{Reinforcement Learning\(RL\) Decision Engine}{chapter.2}% 4
+\BOOKMARK [2][-]{section*.1}{State-Action Value Function}{section.2.1}% 5
+\BOOKMARK [0][-]{chapter.3}{Prior Related Works}{}% 6
+\BOOKMARK [1][-]{section.3.1}{Fuzzy Logic Decision Engine}{chapter.3}% 7
+\BOOKMARK [1][-]{section.3.2}{Problem with this approach}{chapter.3}% 8
+\BOOKMARK [1][-]{section.3.3}{Smartphone Energizer \(SE\) }{chapter.3}% 9
+\BOOKMARK [1][-]{section.3.4}{Our work in comparison to the previous works}{chapter.3}% 10

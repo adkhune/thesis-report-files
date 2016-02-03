@@ -1,0 +1,11 @@
+\contentsline {section}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {2}Proposed Mechanism}{2}
+\contentsline {subsection}{\numberline {2.1}Q Function}{2}
+\contentsline {subsection}{\numberline {2.2}The Idea}{3}
+\contentsline {section}{\numberline {3}Implementation and Results}{3}
+\contentsline {subsection}{\numberline {3.1}Scenario 1}{3}
+\contentsline {subsubsection}{\numberline {3.1.1}Code}{4}
+\contentsline {subsection}{\numberline {3.2}Scenario 2}{4}
+\contentsline {section}{\numberline {4}Discussion}{5}
+\contentsline {section}{\numberline {5}Next Steps}{5}
+\contentsline {section}{\numberline {6}Conclusion}{5}

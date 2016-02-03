@@ -1,0 +1,38 @@
+\begin{thebibliography}{1}
+
+\bibitem{AmazonSilk}
+``Amazon silk split browser architecture..''
+  \url{https://s3.amazonaws.com/awsdocs/AmazonSilk/latest/silk-dg.pdf}.
+
+\bibitem{OperaMini}
+``Opera mini architecture and javascript..''
+  \url{http://dev.opera.com/articles/view/opera-mini-and-javascript/}.
+
+\bibitem{ChromeBeta}
+``Data compression proxy in android chrome beta..''
+  \url{https://developers.google.com/chrome/mobile/docs/data-compression}.
+
+\bibitem{wang2013accelerating}
+X.~S. Wang, H.~Shen, and D.~Wetherall, ``Accelerating the mobile web with
+  selective offloading,'' in {\em Proceedings of the second ACM SIGCOMM
+  workshop on Mobile cloud computing}, pp.~45--50, ACM, 2013.
+
+\bibitem{sivakumar2014cloud}
+A.~Sivakumar, V.~Gopalakrishnan, S.~Lee, S.~Rao, S.~Sen, and O.~Spatscheck,
+  ``Cloud is not a silver bullet: A case study of cloud-based mobile
+  browsing,'' in {\em Proceedings of the 15th Workshop on Mobile Computing
+  Systems and Applications}, p.~21, ACM, 2014.
+
+\bibitem{ezyZip}
+``ezyzip: The simple online zip tool.'' \url{http://www.ezyzip.com/}.
+
+\bibitem{olconvert}
+``Online-conver.com.'' \url{http://archive.online-convert.com/convert-to-zip}.
+
+\bibitem{kelenyi2010cloudtorrent}
+I.~Kel{\'e}nyi and J.~K. Nurminen, ``Cloudtorrent-energy-efficient bittorrent
+  content sharing for mobile devices via cloud services,'' in {\em Proceedings
+  of the 7th IEEE on Consumer Communications and Networking Conference (CCNC)},
+  vol.~1, 2010.
+
+\end{thebibliography}

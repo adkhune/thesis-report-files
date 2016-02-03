@@ -1,0 +1,5 @@
+pdflatex radharani
+bibtex radharani
+pdflatex radharani
+pdflatex radharani
+evince radharani.pdf

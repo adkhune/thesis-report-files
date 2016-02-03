@@ -1,0 +1,98 @@
+\documentclass[12pt]{report}
+%\documentclass[masters, reqno]{csuthesis}
+\setcounter{secnumdepth}{1}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black, %choose some color if you want links to stand out
+    urlcolor=black
+}
+
+\usepackage[margin=0.5in]{geometry}      % default margins are too big
+\usepackage{graphicx}                  % for \includegraphics
+\usepackage{listings}                  % for typesetting source code
+\lstset{language=Python}
+\usepackage{mathtools}                 % for better typesetting of math
+%\usepackage[round]{natbib}            % for using different bibliography styles
+\bibliographystyle{ieeetr}  
+\usepackage{url}
+%\usepackage{amsmath}
+\usepackage{verbatim}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{black},
+  keywordstyle=\color{black},
+  commentstyle=\color{black},
+  stringstyle=\color{black},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}                 % for typesetting source code
+
+\usepackage{xcolor}
+\usepackage{xparse}
+\NewDocumentCommand{\framecolorbox}{oommm}
+ {% #1 = width (optional)
+  % #2 = inner alignment (optional)
+  % #3 = frame color
+  % #4 = background color
+  % #5 = text
+  \IfValueTF{#1}
+   {\IfValueTF{#2}
+    {\fcolorbox{#3}{#4}{\makebox[#1][#2]{#5}}}
+    {\fcolorbox{#3}{#4}{\makebox[#1]{#5}}}%
+   }
+   {\fcolorbox{#3}{#4}{#5}}%
+ }
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\title{References}
+
+\author{Aditya Khune}
+
+\date{\today}  % Leave this line out to use the current date.
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+sivakumar2014cloud -- \cite{sivakumar2014cloud}
+
+AmazonSilk -- \cite{AmazonSilk}
+
+ChromeBeta -- \cite{ChromeBeta}
+
+OperaMini--\cite{OperaMini}
+
+wang2013accelerating -- \cite{wang2013accelerating}
+
+huang2012close -- \cite{huang2012close}
+
+Gaikai -- \cite{Gaikai}
+
+gcluster -- \cite{gcluster}
+
+gamingeverywhere -- \cite{gamingeverywhere}
+
+\bibliographystyle{plainnat}  % or plain, or many other possibilities
+\bibliography{references.bib}
+
+
+\end{document}

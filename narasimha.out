@@ -1,0 +1,27 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section*.3}{Background}{chapter.1}% 2
+\BOOKMARK [2][-]{section*.4}{Challenges in Code Offloading}{section*.3}% 3
+\BOOKMARK [2][-]{section*.5}{Contributions}{section*.3}% 4
+\BOOKMARK [2][-]{section*.6}{Outline}{section*.3}% 5
+\BOOKMARK [0][-]{chapter.2}{Problem Statement}{}% 6
+\BOOKMARK [0][-]{chapter.3}{Related Work}{}% 7
+\BOOKMARK [0][-]{chapter.4}{Overview of Machine Learning Techniques used for Offloading Engine}{}% 8
+\BOOKMARK [1][-]{section.4.1}{Reinforcement Learning\(RL\)}{chapter.4}% 9
+\BOOKMARK [1][-]{section.4.2}{Reinforcement Learning \(RL\) with Neural Network \(NN\)}{chapter.4}% 10
+\BOOKMARK [1][-]{section.4.3}{Fuzzy Logic}{chapter.4}% 11
+\BOOKMARK [1][-]{section.4.4}{Linear Discriminant Analysis \(LDA\)}{chapter.4}% 12
+\BOOKMARK [1][-]{section.4.5}{Linear Logistic Regression}{chapter.4}% 13
+\BOOKMARK [0][-]{chapter.5}{Smart Offloading Decision Engines}{}% 14
+\BOOKMARK [1][-]{section.5.1}{Fuzzy Logic Decision Engine}{chapter.5}% 15
+\BOOKMARK [2][-]{section*.10}{Mobile offloading logic}{section.5.1}% 16
+\BOOKMARK [2][-]{section*.12}{Problem with this approach}{section.5.1}% 17
+\BOOKMARK [1][-]{section.5.2}{Cuckoo}{chapter.5}% 18
+\BOOKMARK [1][-]{section.5.3}{Smartphone Energizer \(SE\) }{chapter.5}% 19
+\BOOKMARK [0][-]{chapter.6}{Reward Based Offloading}{}% 20
+\BOOKMARK [1][-]{section.6.1}{Reinforcement Learning\(RL\) Decision Engine for Offloading Process}{chapter.6}% 21
+\BOOKMARK [2][-]{section*.15}{State-Action Value Function as a Table:}{section.6.1}% 22
+\BOOKMARK [1][-]{section.6.2}{RL with Neural Network}{chapter.6}% 23
+\BOOKMARK [0][-]{chapter.7}{Experiments and Results}{}% 24
+\BOOKMARK [0][-]{chapter.8}{Discussion and Future Work}{}% 25
+\BOOKMARK [1][-]{section*.34}{What is the recent trend in Smartphone app and Cloud Industry which encourages offloading services}{chapter.8}% 26
+\BOOKMARK [2][-]{section*.35}{What kind of applications can benefit from this work}{section*.34}% 27

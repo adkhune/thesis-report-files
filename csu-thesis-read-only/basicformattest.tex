@@ -1,0 +1,232 @@
+\documentclass[draft, masters]{csuthesis} 
+%draft means that it won't actually render any pictures (graphs) it will just include space for them.
+
+% As soon as you get this to compile, your next step
+% should be to remove the draft option, so that your
+% figures will show up.  Right now it's there so that
+% the document will compile as is, with sample figures.
+
+% If the grad school gives you grief for the smallcaps
+% (all caps but capital capitals slightly larger) then
+% you can use the "nosmallcaps" option to eliminate
+% all smallcaps from the preliminary pages.
+
+% Copyright pages are mandatory as of February 2014
+% so now that process is entirely automated, generating
+% a page with your name and your graduation year. No
+% need for you to do anything.
+
+% Now, change the following fields to match your thesis:
+\title{Improved Methods for Calculating the Multifractal Spectrum for Small Data Sets}
+\author{Leif Anderson}
+\departmentname{Department of Physics}
+\gradterm{Spring} %The semester that you are going to turn this in.
+% The year will automatically be set to the current year.  If you
+% want to modify the year manually, use this command:
+%\gradyear{2014}
+% But otherwise, ignore that command.
+\advisor{Richard Eykholt}
+\coadvisor{Test Test} %optional
+\committee{Raymond Steve Robinson \and Martin Gelfand \and Patrick Shipman} %separate committee names with \and
+%committee names should not have any honorifics (i.e. NO Dr., PhD, professor, etc.)  Just names.
+
+% you do not need these newcommand lines.
+% They are my personal shorthand for derivatives.
+\newcommand{\deriv}[2]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
+\newcommand{\dby}[1]{\frac{\mathrm{d}}{\mathrm{d}#1}}
+\newcommand{\pd}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\pby}[1]{\frac{\partial}{\partial#1}}
+
+\usepackage{lipsum}%this package provides nonsense text for testing document layouts.  Not needed for real thesis.
+
+% a couple useful options that you may wish to uncomment:
+% \setcounter{tocdepth}{3} %more depth in table of contents
+% \numberwithin{equation}{chapter} %display eqn # as 1.3, not 3
+% \renewcommand{\bibname}{References} %change the name of your bibliography
+% numberwithin commands for table, figure, and section are 
+% already included in the .cls file.  You can search for 
+% them and remove them if you want to.
+
+% If you want to make additional changes to your formatting,
+% do it here.  For example, any \usepackage{...} commands 
+% belong here, along with any special functions, etc. If you
+% want to change something that I did in the class file, I
+% recommend doing that by copying and pasting the part that
+% you want to change to right here, and modifying it within
+% this document.
+
+\begin{document}
+\frontmatter
+%turns the page numbering to roman, and does some other stuff.
+
+% \input{abstract}
+\begin{abstract}
+This is the abstract right here. I wanted a short input, so I typed these couple sentences, then I included some Latin filler: \lipsum[1-4]
+
+End of Abstract.
+\end{abstract}
+% note that for amsbook (which is basically the class we are copying), the abstract must be declared before the title.  It prints as part of maketitle.
+% personally, I put my abstract definition in a separate file, abs_for_diss.tex, and used \input{abs_for_diss} here.
+% The grad school requires an abstract.
+
+\begin{acknowledgements}
+Thanks to Dan Brake, Fran Campana, and Natalie Anderson for their help understanding the rules of the graduate school; to Katherine Zaunbrecher for her proofreading and motivation help; and to many others.
+\end{acknowledgements}%this is optional.  It must be declared before maketitle, a lot like abstract.  Consider having this in a separate file, like ack.tex, and then using \input{ack}
+
+\maketitle
+% maketitle is a huge command in a small package.  It will render the title page, copyright page, acknowledgements, abstract, and probably a bunch of other stuff that I'm forgetting about.  If you choose not to define copyright, acknowledgements, etc, it automatically doesn't render them.
+
+% other optional frontmatter could go somewhere in here.  dedication, biography, etc.  Grad school lists approved frontmatter pages somewhere.
+% most frontmatter than I consider silly is not yet automated.  Also most frontmatter doesn't have any explicit style requirements, so I feel justified in ignoring it.
+
+\tableofcontents %don't move this around too much
+\listoftables %optional, but this is the spot it should go
+\listoffigures %optional, but this is the right location for it
+
+% Any additional optional preliminary pages (e.g. List of Symbols)
+% go right here, with the \preliminarypage{} command.  Consult
+% the rules to see what order they are supposed to be in.  For
+% examples of how to use the \preliminarypage command, see my 
+% other format test file, symbolstest.tex
+
+\mainmatter %switches page numbering to normal, resets page counter, etc.
+% This is the start of the main writing, but there are a couple more
+% notes that I think might be helpful, tossed in here and there with
+% the format testing stuff.
+
+\chapter{Introduction}
+
+Before beginning, here is a sentence containing a citation~\cite{multifrac}.  Here is another~\cite{ebalett}, and another~\cite{corrdim}.  Note the order in which the numbers appear, and compare to the order in which they appear in the bibliography.  The user can choose to sort by order of citation, alphabetical order, order of publication, etc; any of the standard \verb-bibtex- options should be available.
+% If you're wondering about the tildes (~), those are to prevent line breaks
+% on those spaces, so that the word ``figure" or ``table" or whatever else 
+% will never end up on a separate line from the actual figure number, table
+% number, or other type of citation.
+
+Now a little text: \lipsum[1]
+
+\section{This is a new Section}
+
+Here is a paragraph referencing a figure: A phenomenological demonstration of this behavior is shown in figure \ref{2010_09_sparse1d}.  Various $D_q$ curves were computed for the logistic map, with different numbers of points used to populate the histogram.
+
+\subsection{This is a subsection}
+
+This subsection contains a figure and a table. \lipsum[1-2]
+
+\begin{figure}[!ht]
+\includegraphics[width=.9\textwidth]{20100922_progression.png}
+\caption[Plots demonstrating the effect of sparse data on $D_q$ convergence.]{Plots of the $D_q$ curve for the logistic map as the total number of points is varied.  There were 10,000 bins in the histogram.  Notice that $D_q$ settles down to the expected curve in the general vicinity of 100 points per cell, although in reality this number is slightly higher, since some cells are empty.  Also notice that although $N_{\{n=1\}}=0$ appears to be a necessary requirement, it is not sufficient.  All these curves were calculated with the naive algorithm. \label{2010_09_sparse1d}}
+\end{figure}
+
+\begin{table}
+\caption[Small Table]{Small test table with $a$ and $b$}
+\label{table:smalltab}
+\begin{tabular}{c|c}
+$a$ & $b$ \\
+\hline
+1 & 2 \\
+2 & 3 \\
+\end{tabular}
+\end{table}
+
+\chapter{New Methods}
+
+This is the second chapter, and here is a fact which we support with a citation\cite{coxlittleoshea}.  Many people put the chapter declaration inside the inputted file\cite{Yorke1989}, in order to be able to reorder things very easily\cite{robot_homotopy}.  
+% Note the blank line above this short paragraph (below \chapter),
+% which makes it start as an indented paragraph.  Be consistent in
+% your own document: either always have a blank line, or never.
+
+\section{A new definition of dimension?}
+
+\begin{figure}
+\includegraphics[width=.8\textwidth]{fakefigure.png}
+\caption[Test figure in chapter 2]{Here is another test figure, this one placed in another chapter, to double-check the figure numbering.}
+\label{fig:newchap}
+\end{figure}
+
+Will you unite the disparate definitions of the current science? Also, note that we just included figure \ref{fig:newchap}. \lipsum[1]
+
+\subsection{A subsection}
+
+\begin{table}[htp]
+\caption[Test table]{Here is a test table.}
+\label{table:faketable}
+% \caption[short version of caption (for list of tables/figures)]{Longer, more detailed caption, perhaps containing a real description of the table's contents.  This is the caption that is displayed with the figure or table.}
+\begin{tabular}{|c|c|c|}
+\hline
+Item 1 & Item 2 & Item 3\\
+\hline
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+\hline
+\end{tabular}
+\end{table}
+
+This text here is the ``actual" location of table \ref{table:faketable}.  Since tables are floating objects, the table itself may have moved around so as to better fit on the page.  I used the options \verb-[htp]-, which should attempt to place the table \verb-h-ere, or if that fails, at the \verb-t-op of this or the next page\footnote{I'm not sure if the top option will still do next page now that we are using the single side option for amsbook.}, or if that fails, on a \verb-p-age containing only floats.  The float page gets purged at the end of each section, I think.  You can also use global options to specify that all floats end up in special places, like pages containing only floats.  The grad school requires that figures of all types (tables, graphs, etc) appear after they are first cited.  \LaTeX\ may move the table/figure to be before its citation, so watch out for that.  On the plus side the graduate school may not notice if you fail to meet this requirement every time.
+
+\subsection{Another Subsection}
+
+Automatically generated nonsense text: \lipsum[3-4]
+
+\begin{sidewayspage}
+\begin{table}[h]
+\caption{Sideways Table \label{table:sidetable}}
+\begin{tabular}{|c|c|c|ccc|}
+\hline
+Item 1 & Item 2 & Item 3 & more items & more items & more items\\
+\hline
+\hline
+1 & 2 & 3 & x & x & x\\
+4 & 5 & 6 & x & x & y\\
+\hline
+\end{tabular}
+\end{table}
+\end{sidewayspage}
+
+Here is some text inserted after the sideways table.  Hopefully the table will float, not forcing a break before this text.  If these lines are right at the top of a new page, something might be wrong. \lipsum[1-3]
+
+\backmatter
+\bibliographystyle{ieeetr}
+\bibliography{leifbib} %note that this is a separate file, called leifbib.bib
+
+\appendix %this switches to apppendix mode.  Now any new chapters will be appendices instead of chapters.
+
+\chapter{Automatically Generated Supplementary Material} %this will be displayed as an appendix, not a chapter.  Appendices are at the same level in the hierarchy as chapters.
+
+\section{Some Sample Material}
+
+Appendix is a strange name.  Did the name for the written material come before the name of the organ? Here~\cite{infodim} is a citation in an appendix.
+
+\lipsum[5-7]
+
+\section{On Why I Should Work Harder}
+
+Let me address that issue with the following classical arguments: \lipsum[1-2]
+
+\chapter{Another Supplement}
+
+\lipsum[1-3]
+
+% Your thesis/dissertation will probably actually look like:
+
+% <same preamble as we have here>
+% \begin{document}
+% \frontmatter
+% \input{abstract}
+% \input{acknowledgements}
+% \maketitle
+% \tableofcontents
+% \listoffigures
+% \mainmatter
+% \input{ch1intro}
+% \input{anotherchapter}
+% <etc>
+% \backmatter
+% \bibliographystyle{ieeetr}
+% \bibliography{thebib}
+% \appendix
+% \input{thatappendix}
+% \end{document}
+
+% ...and most of your actual writing will be in separate files.
+
+\end{document}

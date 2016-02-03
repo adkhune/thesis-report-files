@@ -1,0 +1,36 @@
+Intelligent interaction aware middleware framework for Offloading - name
+offload definition
+
+Impact-abstract, introduction, conclusion
+Abstract
+Impact
+we have -remove it came many times 
+
+Benchmark capital
+
+Introduction
+mention 4G HSPA +
+slowly introduce about the topic
+how it completes the gap
+Impact
+Outline -write more elaborately
+
+Figure number of apps years
+
+source and paper title
+references 
+add in introduction about the apps only which can benefit most.
+
+Literature review
+gaps in existing literature
+and Impact of my thesis
+conclusion in the lat paragraph
+
+conclusion
+
+add about video processing is not very much feasible.
+
+Impact
+
+future work
+its a middle ware app, so future apps will use this data.

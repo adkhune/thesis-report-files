@@ -1,0 +1,87 @@
+\documentclass{csuthesis} %draft means that it won't actually render any pictures (graphs) it will just include space for them.
+%\documentclass[draft, masters]{csuthesis} %draft means that it won't actually render any pictures (graphs) it will just include space for them.
+
+\title{Model selection and nonparametric estimation with Chicago-style citations}
+\author{Michael Jordan}
+\departmentname{Department of Statistics} 
+\gradterm{Spring}
+\advisor{Jean Opsomer}
+\committee{F. Jay Breidt \and Mary Meyer \and John Elder}
+
+
+\usepackage{lipsum}%this package provides nonsense text for testing document layouts.  Not needed for real thesis.
+
+
+% Here are the important changes:
+% FIRST, go comment out the lines from \usepackage[ ... ]{natbib} through \setlength{\bibsep}{...}
+% in csuthesis.cls
+% ^^^ HIGHLY IMPORTANT.
+\usepackage{chicago}
+% this package may be outdated.  Tough luck.  
+% Maybe you can find a more recent version 
+% and follow my same procedure.
+% To get this to compile, you'll need to find that chicago package.
+
+% The following is copied out of... somewhere... 
+% (maybe chicago package?) and modified:
+\def\thebibliography#1{
+	\centerline{\scshape References}
+	\vspace{.5\baselineskip}
+	\addcontentsline{toc}{chapter}{{\scshape References}}
+	\list
+   {[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}
+   \leftmargin\labelwidth
+   \advance\leftmargin\labelsep
+   \advance\leftmargin\bibindent
+   \itemindent -\bibindent
+   \listparindent \itemindent
+   \parsep 0mm plus .5\baselineskip
+   \usecounter{enumi}}
+   \def\newblock{}
+   \sloppy
+   \sfcode`\.=1000\relax}
+ 
+% Ok, that's about the end of the modifications.  Now go look at the end of this document.
+
+\begin{document}
+
+\frontmatter
+%turns the page numbering to roman, and does some other stuff.
+
+% \input{abstract}
+\begin{abstract}
+A sample abstract: \lipsum[1-2]
+\end{abstract}
+
+\begin{acknowledgements}
+\lipsum[3]
+\end{acknowledgements}%this is optional.  It must be declared before maketitle, a lot like abstract.  Consider having this in a separate file.
+
+\maketitle
+
+\tableofcontents %don't move this around too much
+% \listoftables %optional, but this is the spot it should go
+%\listoffigures %optional, but this is the right location for it
+
+\mainmatter %switches page numbering to normal, resets page counter, etc.
+% \include{chapter1}
+%\include{chapter2}
+%\include{chapter3_r}
+%\include{chapter4_r}
+
+\chapter{The only chapter}
+
+Here's a sample sentence with a couple citations, namely number one \cite{multifrac} and number two \cite{infodim}.  Now here is a ton of filler.
+
+\lipsum[4-5]
+
+\backmatter
+\bibliographystyle{chicago}
+%% \bibliography{samplebibfile} %note that this is a separate file
+
+\bibliography{leifbib} %note that this is a separate file
+%
+%\appendix % to begin appendices
+%
+% \input{appendix1.tex}
+\end{document}

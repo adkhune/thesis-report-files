@@ -1,0 +1,69 @@
+package com.example.aditya.smartoffloadingapp;
+
+import android.content.Intent;
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
+
+
+public class FuzzyLogicDisplay extends ActionBarActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_fuzzy_logic_display);
+
+        Intent fuzzyintent = getIntent();
+        String message = fuzzyintent.getStringExtra(MainOffloadingAppActivity.EXTRA_MESSAGE);
+        String message1 = fuzzyintent.getStringExtra(MainOffloadingAppActivity.EXTRA_MESSAGE1);
+
+        TextView t1 = (TextView) findViewById(R.id.FuzzyAlgorithmDisplay);
+        t1.setText(message);
+
+        TextView t2 = (TextView) findViewById(R.id.FuzzyAppDisplay);
+        t2.setText(message1);
+
+
+
+
+
+
+/* create TextView Object **/
+/*        TextView textView = new TextView(this); */
+/* Set the text size and message */
+/*        textView.setTextSize(40); */
+/*        textView.setText(message); */
+/*add the TextView as the root view of the activity’s layout by passing it to setContentView()**/
+/*        setContentView(textView); */
+/*        setContentView(R.layout.activity_fuzzy_logic_display); **/
+    }
+
+
+
+/*
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_fuzzy_logic_display, menu);
+        return true;
+    }
+**/
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+}
+

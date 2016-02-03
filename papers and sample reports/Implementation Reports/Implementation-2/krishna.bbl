@@ -1,0 +1,17 @@
+\begin{thebibliography}{1}
+
+\bibitem{adityaFL}
+A.~Khune, ``Report on implementation (offloading decision engine app for mobile
+  cloud applications),'' Dec 2014.
+
+\bibitem{kumar2010cloud}
+K.~Kumar and Y.-H. Lu, ``Cloud computing for mobile users: Can offloading
+  computation save energy?,'' {\em Computer}, vol.~43, no.~4, pp.~51--56, 2010.
+
+\bibitem{flores2013adaptive}
+H.~R. Flores~Macario and S.~Srirama, ``Adaptive code offloading for mobile
+  cloud applications: Exploiting fuzzy sets and evidence-based learning,'' in
+  {\em Proceeding of the fourth ACM workshop on Mobile cloud computing and
+  services}, pp.~9--16, ACM, 2013.
+
+\end{thebibliography}

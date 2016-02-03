@@ -1,0 +1,77 @@
+abstract:
+We are doing things on our mobile that we used to do on our computers for example GPS-based navigation, social network interaction,
+on-line video streaming. It was predicted that Mobile Internet users will surpass desktop internet users by 2014.
+to continue this trend and more versatile mobile applications. desktop-class application experience.
+capable of running advanced PC-like applications,
+smartphones suffer severely from limited battery life due to
+their inherent small size and slowly-evolving lithium battery
+technology, which greatly encumbers innovative ideas and
+imagination of application developers. rapid development in wireless network technology and cloud computing allows
+smartphones to effortlessly access nearby computing facilities (i.e. cloudlet) [8] or remote server
+clusters (i.e. data centers) [1].
+
+problem is battery and processing power. Research is suggesting to look for other options such as 
+offloading. In this paper We have looked for offloading as a serious option for large sets of applications 
+and build machine learning based efficient systems. Our findings suggest that offloading have a great limitations,
+and only a small set of applications that should be tried. To overcome these limitations we have suggested 
+an efficient and simple RL based offloading system.
+
+The Energy expensive components are display, CPU and network interface.
+The power consumed by just the screen and touch sensors are very high.  Offloading means save the energy consumption 
+of CPU. and if you really be saving energy means CPU compute intensive processing for prolonged time.
+We conclude that due to the dynamics involved, enabling power-aware mobile offloading is extremely challenging, and
+involves various tradeoffs.
+
+using computation offloading techniques,
+should consider the tradeoff between the energy required for
+local computation and the energy involved by the additional
+communication, as well as the impact on the learning process,
+in order to maximise the energy saving
+
+
+good info:
+Energy saving strategies may include among others
+content adaptation, dynamic voltage and frequency scaling,
+computation offloading, adapting the wireless traffic flow or
+sending the data over a more energy efficient network in
+range, reducing the screen brightness, etc. For example, the
+system may decrease the technical quality of the learning
+content or present this with alternative media types which
+are less energy expensive to receive and compute
+
+Zhang et al. [11] have focused on energy saving techniques
+for mobile multimedia delivery. The authors group the existing
+solutions in power aware video coding and video delivery. One
+important as well as difficult aspect regarding video coding is
+accurate estimation of codec power consumption based on its
+computational complexity, in order to enable energy saving.
+The authors identified several main challenges that come when
+designing energy efficient mobile multimedia communication
+devices: 1) real-time multimedia is delay-sensitive and
+bandwidth-intense, making it also the most power consuming
+application, 2) the radio frequency environment is changing
+dynamically over time and space, 3) the diversity of mobile
+devices and their capabilities, 4) the video quality does not
+present a linear increase with the increase in complexity,
+and 5) the battery discharge behaviour is nonlinear. The
+authors conclude that due to the dynamics involved, enabling
+power-aware mobile multimedia is extremely challenging, and
+involves various tradeoffs.
+
+Consider a scenario where a user holding
+a Wi-Fi connected smartphone walks from one room to
+another wall-separated room. As the user walks into the
+second room, the Wi-Fi signal from the first room is weakened
+by the blocking walls, thereby leading to higher network
+transmission overheads and even network disconnection.
+The optimal offloading decision made in the first room
+becomes suboptimal. In such case, an application would
+have conserved more energy if executed on the smartphone,
+compared to being offloaded to other computing facilities.
+Inconsistency in network performance undermines the positive
+effects of offloading techniques, which calls for more
+efficient mechanisms to make dynamic and accurate offloading
+decisions. The problem becomes even more challenging
+when network performance is affected not only by user mobility,
+but also by server overload to receive dynamically
+changing number of requests.

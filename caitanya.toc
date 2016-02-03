@@ -1,0 +1,36 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Background}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Challenges in Code Offloading}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Contributions}{2}{section.1.3}
+\contentsline {section}{\numberline {1.4}Outline}{3}{section.1.4}
+\contentsline {chapter}{\numberline {2}Prior Works in Offloading Domain}{4}{chapter.2}
+\contentsline {chapter}{\numberline {3}Overview of Machine Learning Techniques used for Offloading Engine}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Reinforcement Learning(RL)}{5}{section.3.1}
+\contentsline {subsubsection}{Q Function}{6}{section*.4}
+\contentsline {subsubsection}{Reinforcement Learning Objective}{6}{section*.5}
+\contentsline {section}{\numberline {3.2}Reinforcement Learning (RL) with Neural Network (NN)}{6}{section.3.2}
+\contentsline {section}{\numberline {3.3}Fuzzy Logic}{6}{section.3.3}
+\contentsline {section}{\numberline {3.4}Linear Discriminant Analysis (LDA)}{6}{section.3.4}
+\contentsline {section}{\numberline {3.5}Linear Logistic Regression}{7}{section.3.5}
+\contentsline {chapter}{\numberline {4}Application Oriented Study of Offloading}{8}{chapter.4}
+\contentsline {section}{\numberline {4.1}Matrix Operations}{9}{section.4.1}
+\contentsline {section}{\numberline {4.2}Internet Browsers}{9}{section.4.2}
+\contentsline {section}{\numberline {4.3}Zipper}{11}{section.4.3}
+\contentsline {section}{\numberline {4.4}Voice Recognition and Translation}{11}{section.4.4}
+\contentsline {section}{\numberline {4.5}Torrents}{12}{section.4.5}
+\contentsline {section}{\numberline {4.6}Findings:}{13}{section.4.6}
+\contentsline {chapter}{\numberline {5}Smart Offloading Decision Engines to Choose between Availble networks and Counter Network Inconsistency}{14}{chapter.5}
+\contentsline {section}{\numberline {5.1}Need to choose right network while Offloading}{14}{section.5.1}
+\contentsline {section}{\numberline {5.2}Reinforcement Learning(RL) Decision Engine}{14}{section.5.2}
+\contentsline {subsection}{State-Action Value Function}{14}{section*.15}
+\contentsline {subsubsection}{Set of Possible State Values}{15}{section*.16}
+\contentsline {subsubsection}{Set of Action Values}{15}{section*.17}
+\contentsline {subsubsection}{Representing the Q Table with Penalty values}{15}{section*.18}
+\contentsline {subsubsection}{Algorithm of our Offloading system}{16}{section*.21}
+\contentsline {section}{\numberline {5.3}RL with Neural Network}{16}{section.5.3}
+\contentsline {chapter}{\numberline {6}Prior Related Works}{18}{chapter.6}
+\contentsline {section}{\numberline {6.1}Fuzzy Logic Decision Engine}{18}{section.6.1}
+\contentsline {section}{\numberline {6.2}Problem with this approach}{18}{section.6.2}
+\contentsline {section}{\numberline {6.3}Smartphone Energizer (SE) }{18}{section.6.3}
+\contentsline {section}{\numberline {6.4}Our work in comparison to the previous works}{19}{section.6.4}
+\contentsline {chapter}{\numberline {7}Conclusion and Future Work}{21}{chapter.7}

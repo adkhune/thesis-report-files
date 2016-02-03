@@ -1,0 +1,193 @@
+\documentclass{csuthesis}
+
+% If the grad school gives you grief for the smallcaps
+% (all caps but capital capitals slightly larger) then
+% you can use the "nosmallcaps" option to eliminate
+% all smallcaps from the preliminary pages.
+
+% Now, change the following fields to match your thesis:
+\title{A Simple Dissertation Which Includes a Sample List of Symbols}
+\author{Leif Anderson}
+\departmentname{Department of Physics}
+\gradterm{Spring} %The semester that you are going to turn this in.
+% The year will automatically be set to the current year.  If you
+% want to modify the year manually, use this command:
+%\gradyear{2014}
+% But otherwise, ignore that command.
+\advisor{Richard Eykholt}
+\committee{Raymond Steve Robinson \and Martin Gelfand \and Patrick Shipman} %separate committee names with \and
+%committee names should not have any honorifics (i.e. NO Dr., PhD, professor, etc.)  Just names.
+
+\usepackage{lipsum}%this package provides nonsense text for testing document layouts.  Not needed for real thesis.
+
+% a couple useful options that you may wish to uncomment:
+% \setcounter{tocdepth}{3} %more depth in table of contents
+% \numberwithin{equation}{chapter} %display eqn # as 1.3, not 3
+% \renewcommand{\bibname}{References} %change the name of your bibliography
+% numberwithin commands for table, figure, and section are 
+% already included in the .cls file.  You can search for 
+% them and remove them if you want to.
+
+\begin{document}
+\frontmatter
+%turns the page numbering to roman, and does some other stuff.
+
+% \input{abstract}
+\begin{abstract}
+This is the abstract right here. I wanted a short input, so I typed these couple sentences, then I included some Latin filler: \lipsum[1-4]
+
+End of Abstract.
+\end{abstract}
+% note that for amsbook (which is basically the class we are copying), the abstract must be declared before the title.  It prints as part of maketitle.
+
+\maketitle
+% maketitle is a huge command in a small package.  It will render the title page, copyright page, acknowledgements, abstract, and probably a bunch of other stuff that I'm forgetting about.  If you choose not to define copyright, acknowledgements, etc, it automatically doesn't render them.
+
+% other optional frontmatter could go somewhere in here.  dedication, biography, etc.  Grad school lists approved frontmatter pages somewhere.
+% most frontmatter than I consider silly is not yet automated.  Also most frontmatter doesn't have any explicit style requirements, so I feel justified in ignoring it.
+
+\tableofcontents %don't move this around too much
+\listoftables %optional, but this is the spot it should go
+
+\preliminarypage{List of Symbols}{
+% More of a list of ideas than a real solid example.
+% \section*{General symbols}
+% \subsection*{General Symbols}
+\renewcommand{\descriptionlabel}[1]{#1 }
+\begin{description}
+\setlength{\labelsep}{1pc}
+
+% % Simple list, with no units stuff:
+% \item[$\eta$] Eta: the dimensionless stuff of things.
+% \item[$\beta$] The ratio $v/c$.
+% \item[$v$] Here is a more lengthy description, which is just barely long enough to have to be extended onto a second line.
+% \item[$\pi$] The ratio of $\tau$ to 2.
+% \item[$\tau$] Much like $\pi$, but twice as large, so that circles have area $\frac{1}{2}\tau r^2$.
+
+% List with a dotted leader to the units of the quantity
+% This is my favorite
+\item[$J$] Current density.\dotfill kg
+\item[$\Xi$] Dimensionless distance. \dotfill\emph{unitless}
+\item[$\zeta$] Here is a more lengthy description, which is just barely long enough to have to be extended onto a second line.\dotfill in
+\item[$\upsilon$] Note that this is upsilon, which is not $v$, $\nu$, or $u$.\dotfill lbs
+\item[$\Lambda$] Much like $\lambda$, but larger.\dotfill kg
+\item[$K_{long\,subscript}$] A symbol that is really wide. Notice that this long symbol has probably changed the indentation of the description.  Maybe this is a good thing. \dotfill Wb
+\item[$A$] The first letter of the alphabet \dotfill \emph{unitless}
+\item[$\in$] `is a member of'. \dotfill \emph{logical operator}
+
+% % List with units, but no dotted leader.
+% \item[$K_0$] Here is a symbol with units listed, but without the dotted leader.\hfill N
+% \item[$\epsilon$] Another symbol/unit combination with no dot leader.\hfill J
+% \item[$\Pi$] Running low on creative descriptions for the symbols.\hfill \emph{unitless}
+% \item[$\sigma$] Looks like a lowercase $o$.\hfill s
+
+% % Entirely different sort of list.
+% % I don't like this version as much.
+% \item An entirely different way of presenting the symbols \dotfill $A$
+% \item Vector potential \dotfill $\vec{\Phi}$
+% \item Scalar field density \dotfill $\psi$
+\end{description}
+}
+
+\preliminarypage{List of Keywords}{
+Thesis, Typesetting, \LaTeX, Lorem Ipsum, Dissertation, Document Class, \lipsum[1]
+}
+
+\mainmatter %switches page numbering to normal, resets page counter, etc.
+% This is the start of the main writing, but there are a couple more
+% notes that I think might be helpful, tossed in here and there with
+% the format testing stuff.
+
+\chapter{Introduction}
+
+Now a little text: \lipsum[1]
+
+\section{This is a new Section}
+
+\subsection{This is a subsection}
+
+This subsection contains a table, table~\ref{table:smalltab}. \lipsum[1-2]
+
+\begin{table}
+\caption[Small Table]{Small test table with $a$ and $b$}
+\label{table:smalltab}
+\begin{tabular}{c|c}
+$a$ & $b$ \\
+\hline
+1 & 2 \\
+2 & 3 \\
+\end{tabular}
+\end{table}
+
+\chapter{New Methods}
+
+This is the second chapter. 
+% Note the blank line above this short paragraph (below \chapter),
+% which makes it start as an indented paragraph.  Be consistent in
+% your own document: either always have a blank line, or never.
+
+\section{A new definition of dimension?}
+
+Will you unite the disparate definitions of the current science? \lipsum[1]
+
+\subsection{A subsection}
+
+\begin{table}[htp]
+\caption[Test table]{Here is a test table.}
+\label{table:faketable}
+% \caption[short version of caption (for list of tables/figures)]{Longer, more detailed caption, perhaps containing a real description of the table's contents.  This is the caption that is displayed with the figure or table.}
+\begin{tabular}{|c|c|c|}
+\hline
+Item 1 & Item 2 & Item 3\\
+\hline
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+\hline
+\end{tabular}
+\end{table}
+
+This text here is the ``actual" location of table \ref{table:faketable}.  Since tables are floating objects, the table itself may have moved around so as to better fit on the page.  I used the options \verb-[htp]-, which should attempt to place the table \verb-h-ere, or if that fails, at the \verb-t-op of this or the next page\footnote{I'm not sure if the top option will still do next page now that we are using the single side option for amsbook.}, or if that fails, on a \verb-p-age containing only floats.  The float page gets purged at the end of each section, I think.  You can also use global options to specify that all floats end up in special places, like pages containing only floats.  The grad school requires that figures of all types (tables, graphs, etc) appear after they are first cited.  \LaTeX\ may move the table/figure to be before its citation, so watch out for that.  On the plus side the graduate school may not notice if you fail to meet this requirement every time.
+
+\subsection{Another Subsection}
+
+Automatically generated nonsense text: \lipsum[3-4]
+
+\begin{sidewayspage}
+\begin{table}[h]
+\caption{Sideways Table \label{table:sidetable}}
+\begin{tabular}{|c|c|c|ccc|}
+\hline
+Item 1 & Item 2 & Item 3 & more items & more items & more items\\
+\hline
+\hline
+1 & 2 & 3 & x & x & x\\
+4 & 5 & 6 & x & x & y\\
+\hline
+\end{tabular}
+\end{table}
+\end{sidewayspage}
+
+Here is some text inserted after the sideways table.  Hopefully the table will float, not forcing a break before this text.  If these lines are right at the top of a new page, something might be wrong. \lipsum[1-3]
+
+\backmatter
+% \bibliographystyle{ieeetr}
+% \bibliography{leifbib} %note that this is a separate file, called leifbib.bib
+
+\appendix %this switches to apppendix mode.  Now any new chapters will be appendices instead of chapters.
+
+\chapter{Automatically Generated Supplementary Material} %this will be displayed as an appendix, not a chapter.  Appendices are at the same level in the hierarchy as chapters.
+
+\section{Some Sample Material}
+
+\lipsum[5-7]
+
+\section{On Why I Should Work Harder}
+
+Let me address that issue with the following classical arguments: \lipsum[1-2]
+
+\chapter{Another Supplement}
+
+\lipsum[1-3]
+
+
+\end{document}

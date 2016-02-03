@@ -1,0 +1,8 @@
+@inproceedings{sivakumar2014cloud,
+  title={Cloud is not a silver bullet: A case study of cloud-based mobile browsing},
+  author={Sivakumar, Ashiwan and Gopalakrishnan, Vijay and Lee, Seungjoon and Rao, Sanjay and Sen, Subhabrata and Spatscheck, Oliver},
+  booktitle={Proceedings of the 15th Workshop on Mobile Computing Systems and Applications},
+  pages={21},
+  year={2014},
+  organization={ACM}
+}

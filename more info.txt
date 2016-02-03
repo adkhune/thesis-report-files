@@ -1,0 +1,11 @@
+Other Tools: 
+•	Monsoon Power Measurement Tool  
+•	Android Device Bridge (ADB)  
+•	Amazon Web Services (AWS)  
+•	AWS Command Line Interface (CLI)  
+
+
+
+LTE phones are fast, but they can also suck a battery dry in a few hours. Nokia Siemens Networks did some preliminary studies on LTE phone’s power drain versus their HSPA (3G) counterparts and found that LTE devices consume from 5 percent to 20 percent more than previous-generation phones, depending on the application used.
+Why is LTE so greedy? For starters, the radio in your LTE device is doing a lot more than it ever did in your old 3G handset. The radio is the single biggest source of power drain in any device apart from the LED screen, but unlike the display, the radio is always on. And LTE is particularly hungry.
+All LTE devices sold today use a technology called MIMO, which doesn’t just send or receive a single signal, but rather multiple parallel transmissions. Today’s devices support two such paths – future devices will support more — which means each phone has two antennas, each of which requires its own power amplifier. It’s not quite as bad as the running two phones off of a single battery, but you get the idea.

@@ -1,0 +1,5 @@
+\contentsline {section}{\numberline {1}Mechanism}{1}
+\contentsline {subsection}{\numberline {1.1}Q Function}{2}
+\contentsline {section}{\numberline {2}Implementation}{2}
+\contentsline {subsection}{\numberline {2.1}Code}{2}
+\contentsline {subsection}{\numberline {2.2}Results}{3}

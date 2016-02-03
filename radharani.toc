@@ -1,0 +1,11 @@
+\contentsline {chapter}{\numberline {1}Matrix Operations}{1}{chapter.1}
+\contentsline {subsection}{Results}{1}{section*.2}
+\contentsline {chapter}{\numberline {2}Internet Browsers}{2}{chapter.2}
+\contentsline {subsection}{Results}{2}{section*.5}
+\contentsline {chapter}{\numberline {3}Zipper}{4}{chapter.3}
+\contentsline {section}{\numberline {3.1}Results}{4}{section.3.1}
+\contentsline {chapter}{\numberline {4}Voice Recognition and Translation App}{5}{chapter.4}
+\contentsline {subsection}{Results}{5}{section*.10}
+\contentsline {chapter}{\numberline {5}Torrents}{6}{chapter.5}
+\contentsline {subsection}{Results}{6}{section*.12}
+\contentsline {chapter}{\numberline {6}My Findings and Conclusion}{7}{chapter.6}

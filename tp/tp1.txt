@@ -1,0 +1,14 @@
+Book: Mobile CLoud Computing: An Introduction (J Grover, G Kheterpal)
+Computation offloading is a complex process and it is affected by different parameters such as:
+
+User: network data cost, cloud service cost, privacy and total process execution time determine whether 
+a user enables/disables computation offloading. Additionall, it also depends on what actual action
+the user is perfoming- e.g. if the user is exeuting a performance intensive application, he would ideally
+want to disable computation offloading.
+
+Smartphone: Most modern-age smartphones have powerful processors, upo 1 GB of memory and ample secondary 
+storage, such users are less likely to require frequent mobile cloud support as compared to users with featue phones. 
+
+Application: if the data size is too large and application data is unavailable in the cloud, the mobile side
+computation is encouraged. coz this scenario involves higer execution time and consumes high energy in terms of
+communication which may negate the benefits of offloading.

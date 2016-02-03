@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/dev/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: krishna2.aux
+The style file: ieeetr.bst
+Illegal, another \bibstyle command---line 66 of file krishna2.aux
+ : \bibstyle
+ :          {plainnat}
+I'm skipping whatever remains of this command
+Database file #1: bibkrishna2.bib.bib
+You've used 9 entries,
+            1876 wiz_defined-function locations,
+            520 strings with 5042 characters,
+and the built_in function-call counts, 1715 in all, are:
+= -- 147
+> -- 64
+< -- 0
++ -- 26
+- -- 17
+* -- 103
+:= -- 221
+add.period$ -- 9
+call.type$ -- 9
+change.case$ -- 9
+chr.to.int$ -- 0
+cite$ -- 9
+duplicate$ -- 89
+empty$ -- 213
+format.name$ -- 17
+if$ -- 435
+int.to.chr$ -- 0
+int.to.str$ -- 9
+missing$ -- 4
+newline$ -- 30
+num.names$ -- 4
+pop$ -- 56
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 69
+stack$ -- 0
+substring$ -- 60
+swap$ -- 22
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 11
+width$ -- 10
+write$ -- 71
+(There was 1 error message)

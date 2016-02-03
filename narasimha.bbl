@@ -1,0 +1,71 @@
+\begin{thebibliography}{10}
+
+\bibitem{averageAmerican}
+``protectyourbubble.com.'' \url{http://us.protectyourbubble.com/blog/}.
+
+\bibitem{kumar2010cloud}
+K.~Kumar and Y.-H. Lu, ``Cloud computing for mobile users: Can offloading
+  computation save energy?,'' {\em Computer}, vol.~43, no.~4, pp.~51--56, 2010.
+
+\bibitem{flores2015mobile}
+H.~Flores, P.~Hui, S.~Tarkoma, Y.~Li, S.~Srirama, and R.~Buyya, ``Mobile code
+  offloading: from concept to practice and beyond,'' {\em Communications
+  Magazine, IEEE}, vol.~53, no.~3, pp.~80--88, 2015.
+
+\bibitem{cuervo2010maui}
+E.~Cuervo, A.~Balasubramanian, D.-k. Cho, A.~Wolman, S.~Saroiu, R.~Chandra, and
+  P.~Bahl, ``Maui: making smartphones last longer with code offload,'' in {\em
+  Proceedings of the 8th international conference on Mobile systems,
+  applications, and services}, pp.~49--62, ACM, 2010.
+
+\bibitem{chun2011clonecloud}
+B.-G. Chun, S.~Ihm, P.~Maniatis, M.~Naik, and A.~Patti, ``Clonecloud: elastic
+  execution between mobile device and cloud,'' in {\em Proceedings of the sixth
+  conference on Computer systems}, pp.~301--314, ACM, 2011.
+
+\bibitem{flores2013mobile}
+H.~Flores and S.~Srirama, ``Mobile code offloading: should it be a local
+  decision or global inference?,'' in {\em Proceeding of the 11th annual
+  international conference on Mobile systems, applications, and services},
+  pp.~539--540, ACM, 2013.
+
+\bibitem{kosta2012thinkair}
+S.~Kosta, A.~Aucinas, P.~Hui, R.~Mortier, and X.~Zhang, ``Thinkair: Dynamic
+  resource allocation and parallel execution in the cloud for mobile code
+  offloading,'' in {\em INFOCOM, 2012 Proceedings IEEE}, pp.~945--953, IEEE,
+  2012.
+
+\bibitem{flores2013adaptive}
+H.~R. Flores~Macario and S.~Srirama, ``Adaptive code offloading for mobile
+  cloud applications: Exploiting fuzzy sets and evidence-based learning,'' in
+  {\em Proceeding of the fourth ACM workshop on Mobile cloud computing and
+  services}, pp.~9--16, ACM, 2013.
+
+\bibitem{khairy2013smartphone}
+A.~Khairy, H.~H. Ammar, and R.~Bahgat, ``Smartphone energizer: Extending
+  smartphone's battery life with smart offloading,'' in {\em Wireless
+  Communications and Mobile Computing Conference (IWCMC), 2013 9th
+  International}, pp.~329--336, IEEE, 2013.
+
+\bibitem{kemp2012cuckoo}
+R.~Kemp, N.~Palmer, T.~Kielmann, and H.~Bal, ``Cuckoo: a computation offloading
+  framework for smartphones,'' in {\em Mobile Computing, Applications, and
+  Services}, pp.~59--79, Springer, 2012.
+
+\bibitem{flores2011generic}
+H.~Flores, S.~N. Srirama, and C.~Paniagua, ``A generic middleware framework for
+  handling process intensive hybrid cloud services from mobiles,'' in {\em
+  Proceedings of the 9th International Conference on Advances in Mobile
+  Computing and Multimedia}, pp.~87--94, ACM, 2011.
+
+\bibitem{nPerf}
+``nperf from google play.''
+  \url{https://play.google.com/store/apps/details?id=com.nperf.tester&hl=en}.
+
+\bibitem{AmazonLambda}
+``Aws lambda.'' \url{http://aws.amazon.com/lambda/}.
+
+\bibitem{StackStorm}
+``Stackstorm.'' \url{http://stackstorm.com/product/}.
+
+\end{thebibliography}
